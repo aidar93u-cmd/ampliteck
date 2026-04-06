@@ -1,0 +1,22 @@
+# Claude working files
+.claude/
+
+# PowerShell scripts (dev helpers)
+*.ps1
+
+# Figma/dev text dumps
+*_tree.txt
+*_texts.txt
+text_check.txt
+image_nodes.txt
+project_texts2.txt
+
+# VSCode workspace
+*.code-workspace
+
+# CLAUDE.md (internal AI instructions)
+CLAUDE.md
+
+# OS
+Thumbs.db
+.DS_Store
