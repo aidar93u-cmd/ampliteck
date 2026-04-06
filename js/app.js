@@ -31,6 +31,9 @@
 
 	overlay.addEventListener('click', closeSidebar)
 
+	var closeBtn = document.getElementById('sidebarClose')
+	if (closeBtn) closeBtn.addEventListener('click', closeSidebar)
+
 	/* Close sidebar on nav link click (mobile) */
 	var navLinks = sidebar.querySelectorAll('a')
 	navLinks.forEach(function (link) {
@@ -223,7 +226,7 @@
 				disabledClass: 'is-disabled',
 			},
 			breakpoints: {
-				0: { slidesPerView: 2 },
+				0: { slidesPerView: 1.6 },
 				480: { slidesPerView: 3 },
 				768: { slidesPerView: 4 },
 				1024: { slidesPerView: 5 },
