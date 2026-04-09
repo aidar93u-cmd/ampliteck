@@ -6,6 +6,29 @@
 	var overlay = document.getElementById('sidebarOverlay')
 	var SCROLL_THRESH = 800
 
+	/* ---- AOS init — fill empty data-aos with default animation ---- */
+	document.querySelectorAll('[data-aos]').forEach(function (el) {
+		if (!el.getAttribute('data-aos')) el.setAttribute('data-aos', 'fade-zoom-in')
+	})
+	if (typeof AOS !== 'undefined') {
+		AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out' })
+	}
+
+	/* ---- Lenis smooth scroll ---- */
+	var lenis
+	if (typeof Lenis !== 'undefined') {
+		lenis = new Lenis({
+			duration: 1.7,
+			smoothWheel: true,
+			smoothTouch: false,
+		})
+		function raf(time) {
+			lenis.raf(time)
+			requestAnimationFrame(raf)
+		}
+		requestAnimationFrame(raf)
+	}
+
 	/* ---- Burger / sidebar open-close ---- */
 	function openSidebar() {
 		sidebar.classList.add('is-open')
@@ -80,6 +103,77 @@
 
 	window.addEventListener('scroll', setActiveLink, { passive: true })
 	setActiveLink()
+
+	/* ---- Slot machine digit roller ---- */
+	;(function () {
+		var els = document.querySelectorAll('[data-count]')
+		if (!els.length) return
+
+		function buildRoller(el) {
+			var target = parseInt(el.getAttribute('data-count'), 10)
+			var suffix = el.getAttribute('data-suffix') || ''
+			var digits = String(target).split('')
+
+			var wrap = document.createElement('span')
+			wrap.className = 'roller-wrap'
+
+			var cols = digits.map(function (d) {
+				var col = document.createElement('span')
+				col.className = 'roller-col'
+				var inner = document.createElement('span')
+				inner.className = 'roller-col__inner'
+				for (var i = 0; i <= 9; i++) {
+					var s = document.createElement('span')
+					s.textContent = i
+					inner.appendChild(s)
+				}
+				col.appendChild(inner)
+				wrap.appendChild(col)
+				return { inner: inner, digit: parseInt(d, 10) }
+			})
+
+			if (suffix) {
+				var sfx = document.createElement('span')
+				sfx.className = 'roller-suffix'
+				sfx.textContent = suffix
+				wrap.appendChild(sfx)
+			}
+
+			el.textContent = ''
+			el.appendChild(wrap)
+			return cols
+		}
+
+		function spin(cols) {
+			cols.forEach(function (col, i) {
+				/* Left digits (higher place values) spin slower */
+				var delay = (cols.length - 1 - i) * 180
+				setTimeout(function () {
+					col.inner.style.setProperty('--roller-to', col.digit)
+				}, delay)
+			})
+		}
+
+		var observer = new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (entry) {
+					if (!entry.isIntersecting) return
+					var cols = buildRoller(entry.target)
+					requestAnimationFrame(function () {
+						requestAnimationFrame(function () {
+							spin(cols)
+						})
+					})
+					observer.unobserve(entry.target)
+				})
+			},
+			{ threshold: 0.4 },
+		)
+
+		els.forEach(function (el) {
+			observer.observe(el)
+		})
+	})()
 
 	/* ---- Partners slider ---- */
 	var partnersRow = document.querySelector('.partners__row')
@@ -220,6 +314,11 @@
 			slidesPerView: 5,
 			spaceBetween: 0,
 			loop: true,
+			speed: 900,
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+			},
 			navigation: {
 				nextEl: '#partnersNext',
 				prevEl: '#partnersPrev',
@@ -392,13 +491,18 @@
 		}
 	})()
 
-	/* ---- CTA Form (service-detail.html) ---- */
+	/* ---- CTA Form (service-detail.html + hero modal) ---- */
 	;(function () {
-		var form = document.getElementById('ctaForm')
+		var form =
+			document.getElementById('ctaForm') || document.getElementById('heroCta')
 		if (!form) return
 
+		var formId = form.id
+
 		/* ── Phone mask ── */
-		var phoneInput = document.getElementById('sf-phone')
+		var phoneInput = document.getElementById(
+			formId === 'heroCta' ? 'hm-phone' : 'sf-phone',
+		)
 		var phoneMask = null
 		if (phoneInput && typeof IMask !== 'undefined') {
 			phoneMask = IMask(phoneInput, { mask: '+{7} (000) 000-00-00' })
@@ -489,7 +593,9 @@
 						validateField(field)
 					}
 					/* clear global error */
-					var msg = document.getElementById('ctaErrorMsg')
+					var msg = document.getElementById(
+						formId === 'heroCta' ? 'hmErrorMsg' : 'ctaErrorMsg',
+					)
 					if (msg) msg.textContent = ''
 				})
 
@@ -497,7 +603,9 @@
 					if (label) label.style.opacity = '0'
 					/* clear error state while typing */
 					if (field) field.classList.remove('cta-form__field--error')
-					var msg = document.getElementById('ctaErrorMsg')
+					var msg = document.getElementById(
+						formId === 'heroCta' ? 'hmErrorMsg' : 'ctaErrorMsg',
+					)
 					if (msg) msg.textContent = ''
 				})
 			})
@@ -512,8 +620,12 @@
 		}
 
 		/* ── Toast ── */
-		var toast = document.getElementById('ctaToast')
-		var toastClose = document.getElementById('ctaToastClose')
+		var toast = document.getElementById(
+			formId === 'heroCta' ? 'hmToast' : 'ctaToast',
+		)
+		var toastClose = document.getElementById(
+			formId === 'heroCta' ? 'hmToastClose' : 'ctaToastClose',
+		)
 		if (toastClose) {
 			toastClose.addEventListener('click', function () {
 				toast.classList.remove('is-visible')
@@ -523,7 +635,9 @@
 		/* ── Submit ── */
 		form.addEventListener('submit', function (e) {
 			e.preventDefault()
-			var errorMsg = document.getElementById('ctaErrorMsg')
+			var errorMsg = document.getElementById(
+				formId === 'heroCta' ? 'hmErrorMsg' : 'ctaErrorMsg',
+			)
 			var allValid = true
 
 			form
@@ -546,6 +660,9 @@
 			/* reset */
 			form.reset()
 			if (phoneMask) phoneMask.unmaskedValue = ''
+			var fileNameEl = document.getElementById(
+				formId === 'heroCta' ? null : 'ctaFileName',
+			)
 			if (fileNameEl) fileNameEl.textContent = ''
 			form.querySelectorAll('.cta-form__label').forEach(function (l) {
 				l.style.opacity = ''
@@ -554,6 +671,19 @@
 				f.classList.remove('cta-form__field--error')
 			})
 		})
+
+		/* ── Consent checkbox visual (hero modal) ── */
+		if (formId === 'heroCta') {
+			var consent = document.getElementById('hmConsent')
+			var checkbox = document.getElementById('hmCheckbox')
+			if (consent && checkbox) {
+				consent.addEventListener('click', function (e) {
+					if (e.target.tagName !== 'A') {
+						checkbox.classList.toggle('is-checked')
+					}
+				})
+			}
+		}
 	})()
 
 	/* Smooth scroll for hero CTA button */
@@ -642,11 +772,35 @@
 				nextEl: '#certNext',
 				prevEl: '#certPrev',
 			},
+			breakpoints: {
+				0: { slidesPerView: 1.5, loop: false },
+				769: { slidesPerView: 3, loop: true },
+			},
+		})
+	}
+
+	/* ---- Team swiper (about.html, mobile only) ---- */
+	if (typeof Swiper !== 'undefined' && document.querySelector('.team-swiper')) {
+		var teamSwiper = new Swiper('.team-swiper', {
+			slidesPerView: 1.5,
+			spaceBetween: 0,
+			breakpoints: {
+				769: { enabled: false, slidesPerView: 3 },
+			},
 		})
 	}
 
 	/* ---- Fancybox (about.html certs gallery) ---- */
 	if (typeof Fancybox !== 'undefined') {
+		Fancybox.bind('[data-fancybox]', {
+			Toolbar: {
+				display: {
+					left: [],
+					middle: ['counter'],
+					right: ['close'],
+				},
+			},
+		})
 		Fancybox.bind('[data-fancybox="certs"]', {
 			Toolbar: {
 				display: {
@@ -722,6 +876,38 @@
 	})()
 })()
 ;(function () {
+	/* ---- Parallax gradient triangles ---- */
+	;(function () {
+		// accent-tri: bottom-left fixed, top-left moves up/down
+		var triEls = document.querySelectorAll('.big-btn-cell.accent-tri')
+		// accent-tri-right: bottom-right fixed, top-right moves up/down
+		var triRightEls = document.querySelectorAll('.accent-tri-right')
+
+		if (!triEls.length && !triRightEls.length) return
+
+		var FACTOR = 0.18
+
+		function updateParallax() {
+			triEls.forEach(function (el) {
+				var rect = el.getBoundingClientRect()
+				// progress: 0 when bottom of viewport, 1 when top
+				var progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height)
+				var offset = (progress - 0.5) * rect.height * FACTOR * 2
+				el.style.setProperty('--parallax-tri-y', (-offset).toFixed(2) + 'px')
+			})
+			triRightEls.forEach(function (el) {
+				var rect = el.getBoundingClientRect()
+				var progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height)
+				var offset = (progress - 0.5) * rect.height * FACTOR * 2
+				el.style.setProperty('--parallax-tri-right-y', (-offset).toFixed(2) + 'px')
+			})
+		}
+
+		window.addEventListener('scroll', updateParallax, { passive: true })
+		window.addEventListener('resize', updateParallax, { passive: true })
+		updateParallax()
+	})()
+
 	/* ---- Industries accordion (industries.html) ---- */
 	var items = document.querySelectorAll('.ind-accordion__item')
 	if (!items.length) return
@@ -768,3 +954,53 @@
 		})
 	})
 })()
+document.addEventListener('DOMContentLoaded', () => {
+	const elements = document.querySelectorAll('.reveal-text')
+
+	const observer = new IntersectionObserver(
+		(entries, obs) => {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) return
+
+				const el = entry.target
+
+				const duration = el.getAttribute('duration')
+				const delay = el.getAttribute('delay')
+				const ease = el.getAttribute('ease')
+				const direction = el.getAttribute('direction')
+
+				if (duration) el.style.setProperty('--rt-duration', duration)
+				if (delay) el.style.setProperty('--rt-delay', delay)
+				if (ease) el.style.setProperty('--rt-ease', ease)
+				if (direction) el.style.setProperty('--rt-direction', direction)
+
+				// force browser to apply styles BEFORE animation
+				requestAnimationFrame(() => {
+					el.classList.add('is-visible')
+				})
+
+				obs.unobserve(el)
+			})
+		},
+		{ threshold: 0.25 },
+	)
+
+	elements.forEach(el => observer.observe(el))
+})
+
+// bg-zoom-out for sections with background image/video
+document.addEventListener('DOMContentLoaded', () => {
+	const bgZooms = document.querySelectorAll('.js-bg-zoom')
+	if (!bgZooms.length) return
+	const zo = new IntersectionObserver(
+		(entries, obs) => {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) return
+				entry.target.classList.add('is-zoomed')
+				obs.unobserve(entry.target)
+			})
+		},
+		{ threshold: 0.1 },
+	)
+	bgZooms.forEach(el => zo.observe(el))
+})

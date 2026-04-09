@@ -12,13 +12,14 @@
 		/>
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+			href="css/swiper-bundle.min.css"
 		/>
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+			href="css/fancybox.css"
 		/>
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/aos.css" />
+		<link rel="stylesheet" href="css/style.css?ver=22" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -45,7 +46,20 @@
 					<img src="img/logo-mobile.svg" alt="АМПЛИТЕК" />
 				</a>
 				<button class="sidebar__close" id="sidebarClose" aria-label="Закрыть">
-					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L17 17M17 1L1 17" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"/></svg>
+					<svg
+						width="18"
+						height="18"
+						viewBox="0 0 18 18"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M1 1L17 17M17 1L1 17"
+							stroke="#2C2C2C"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
 				</button>
 			</div>
 			<!-- Desktop + mobile nav -->
@@ -87,75 +101,144 @@
 					</div>
 				</div>
 				<div class="sidebar__mob-socials">
-					<a href="#" class="sidebar__mob-social" aria-label="Telegram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none"><path opacity="0.6" d="M19.9362 1.51976L16.9062 15.7048C16.6802 16.7038 16.1002 16.9288 15.2622 16.4778L10.7172 13.1258L8.49216 15.2528C8.26716 15.4788 8.04116 15.7048 7.52516 15.7048L7.88016 11.0298L16.3582 3.32576C16.7122 2.97076 16.2612 2.84176 15.8102 3.13276L5.26916 9.77276L0.723157 8.38676C-0.275843 8.06476 -0.275843 7.38676 0.949157 6.93676L18.6142 0.0697602C19.4842 -0.18824 20.2262 0.26376 19.9362 1.51976Z" fill="#2C2C2C"/></svg></a>
-					<a href="#" class="sidebar__mob-social" aria-label="VK"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" viewBox="0 0 24 14" fill="none"><path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M23.45 0.948C23.616 0.402 23.45 0 22.655 0H20.03C19.362 0 19.054 0.347 18.887 0.73C18.887 0.73 17.552 3.926 15.661 6.002C15.049 6.604 14.771 6.795 14.437 6.795C14.27 6.795 14.019 6.604 14.019 6.057V0.948C14.019 0.292 13.835 0 13.279 0H9.151C8.734 0 8.483 0.304 8.483 0.593C8.483 1.214 9.429 1.358 9.526 3.106V6.904C9.526 7.737 9.373 7.888 9.039 7.888C8.149 7.888 5.984 4.677 4.699 1.003C4.45 0.288 4.198 0 3.527 0H0.9C0.15 0 0 0.347 0 0.73C0 1.412 0.89 4.8 4.145 9.281C6.315 12.341 9.37 14 12.153 14C13.822 14 14.028 13.632 14.028 12.997V10.684C14.028 9.947 14.186 9.8 14.715 9.8C15.105 9.8 15.772 9.992 17.33 11.467C19.11 13.216 19.403 14 20.405 14H23.03C23.78 14 24.156 13.632 23.94 12.904C23.702 12.18 22.852 11.129 21.725 9.882C21.113 9.172 20.195 8.407 19.916 8.024C19.527 7.533 19.638 7.314 19.916 6.877C19.916 6.877 23.116 2.451 23.449 0.948" fill="#2C2C2C"/></svg></a>
-					<a href="#" class="sidebar__mob-social" aria-label="Rutube"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M11.1072 6.36077H3.30772V3.08736H11.1072C11.5628 3.08736 11.8796 3.17159 12.0386 3.31866C12.1975 3.46574 12.296 3.73853 12.296 4.13702V5.31239C12.296 5.73224 12.1975 6.00502 12.0386 6.15211C11.8796 6.29917 11.5628 6.36205 11.1072 6.36205V6.36077ZM11.6423 0.0012518H0V14H3.30772V9.44563H9.40354L12.296 14H16L12.8109 9.42427C13.9867 9.23947 14.5146 8.85731 14.95 8.22752C15.3854 7.59774 15.6038 6.59082 15.6038 5.24701V4.19737C15.6038 3.40037 15.5242 2.77058 15.3854 2.28788C15.2466 1.80515 15.0094 1.3853 14.6724 1.00817C14.3165 0.65117 13.9202 0.399743 13.4445 0.231297C12.9687 0.0842335 12.3743 0 11.6423 0V0.0012518Z" fill="#2C2C2C"/></svg></a>
-					<a href="#" class="sidebar__mob-social" aria-label="YouTube"><svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M7.935 9.58282V3.98919L13.338 6.79596L7.935 9.58282ZM19.8 3.02076C19.8 3.02076 19.605 1.64823 19.005 1.04408C18.245 0.251813 17.392 0.247832 17.001 0.201052C14.203 1.33481e-07 10.004 0 10.004 0H9.996C9.996 0 5.798 1.33481e-07 2.999 0.201052C2.608 0.247832 1.756 0.250817 0.995 1.04408C0.395 1.64823 0.2 3.02076 0.2 3.02076C0.2 3.02076 0 4.63117 0 6.24257V7.75245C0 9.36286 0.2 10.9743 0.2 10.9743C0.2 10.9743 0.395 12.3458 0.995 12.95C1.755 13.7432 2.755 13.7173 3.2 13.8009C4.8 13.9532 10 14 10 14C10 14 14.203 13.994 17.001 13.793C17.392 13.7462 18.245 13.7432 19.005 12.95C19.605 12.3458 19.8 10.9743 19.8 10.9743C19.8 10.9743 20 9.36286 20 7.75245V6.24257C20 4.63117 19.8 3.02076 19.8 3.02076Z" fill="#2C2C2C"/></svg></a>
+					<a href="#" class="sidebar__mob-social" aria-label="Telegram"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="17"
+							viewBox="0 0 20 17"
+							fill="none"
+						>
+							<path
+								opacity="0.6"
+								d="M19.9362 1.51976L16.9062 15.7048C16.6802 16.7038 16.1002 16.9288 15.2622 16.4778L10.7172 13.1258L8.49216 15.2528C8.26716 15.4788 8.04116 15.7048 7.52516 15.7048L7.88016 11.0298L16.3582 3.32576C16.7122 2.97076 16.2612 2.84176 15.8102 3.13276L5.26916 9.77276L0.723157 8.38676C-0.275843 8.06476 -0.275843 7.38676 0.949157 6.93676L18.6142 0.0697602C19.4842 -0.18824 20.2262 0.26376 19.9362 1.51976Z"
+								fill="#2C2C2C"
+							/></svg
+					></a>
+					<a href="#" class="sidebar__mob-social" aria-label="VK"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="14"
+							viewBox="0 0 24 14"
+							fill="none"
+						>
+							<path
+								opacity="0.6"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+								d="M23.45 0.948C23.616 0.402 23.45 0 22.655 0H20.03C19.362 0 19.054 0.347 18.887 0.73C18.887 0.73 17.552 3.926 15.661 6.002C15.049 6.604 14.771 6.795 14.437 6.795C14.27 6.795 14.019 6.604 14.019 6.057V0.948C14.019 0.292 13.835 0 13.279 0H9.151C8.734 0 8.483 0.304 8.483 0.593C8.483 1.214 9.429 1.358 9.526 3.106V6.904C9.526 7.737 9.373 7.888 9.039 7.888C8.149 7.888 5.984 4.677 4.699 1.003C4.45 0.288 4.198 0 3.527 0H0.9C0.15 0 0 0.347 0 0.73C0 1.412 0.89 4.8 4.145 9.281C6.315 12.341 9.37 14 12.153 14C13.822 14 14.028 13.632 14.028 12.997V10.684C14.028 9.947 14.186 9.8 14.715 9.8C15.105 9.8 15.772 9.992 17.33 11.467C19.11 13.216 19.403 14 20.405 14H23.03C23.78 14 24.156 13.632 23.94 12.904C23.702 12.18 22.852 11.129 21.725 9.882C21.113 9.172 20.195 8.407 19.916 8.024C19.527 7.533 19.638 7.314 19.916 6.877C19.916 6.877 23.116 2.451 23.449 0.948"
+								fill="#2C2C2C"
+							/>
+						</svg>
+					</a>
+					<a href="#" class="sidebar__mob-social" aria-label="Rutube"
+						><svg
+							width="16"
+							height="14"
+							viewBox="0 0 16 14"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								opacity="0.6"
+								d="M11.1072 6.36077H3.30772V3.08736H11.1072C11.5628 3.08736 11.8796 3.17159 12.0386 3.31866C12.1975 3.46574 12.296 3.73853 12.296 4.13702V5.31239C12.296 5.73224 12.1975 6.00502 12.0386 6.15211C11.8796 6.29917 11.5628 6.36205 11.1072 6.36205V6.36077ZM11.6423 0.0012518H0V14H3.30772V9.44563H9.40354L12.296 14H16L12.8109 9.42427C13.9867 9.23947 14.5146 8.85731 14.95 8.22752C15.3854 7.59774 15.6038 6.59082 15.6038 5.24701V4.19737C15.6038 3.40037 15.5242 2.77058 15.3854 2.28788C15.2466 1.80515 15.0094 1.3853 14.6724 1.00817C14.3165 0.65117 13.9202 0.399743 13.4445 0.231297C12.9687 0.0842335 12.3743 0 11.6423 0V0.0012518Z"
+								fill="#2C2C2C"
+							/>
+						</svg>
+					</a>
+					<a href="#" class="sidebar__mob-social" aria-label="YouTube">
+						<svg
+							width="20"
+							height="14"
+							viewBox="0 0 20 14"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								opacity="0.6"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+								d="M7.935 9.58282V3.98919L13.338 6.79596L7.935 9.58282ZM19.8 3.02076C19.8 3.02076 19.605 1.64823 19.005 1.04408C18.245 0.251813 17.392 0.247832 17.001 0.201052C14.203 1.33481e-07 10.004 0 10.004 0H9.996C9.996 0 5.798 1.33481e-07 2.999 0.201052C2.608 0.247832 1.756 0.250817 0.995 1.04408C0.395 1.64823 0.2 3.02076 0.2 3.02076C0.2 3.02076 0 4.63117 0 6.24257V7.75245C0 9.36286 0.2 10.9743 0.2 10.9743C0.2 10.9743 0.395 12.3458 0.995 12.95C1.755 13.7432 2.755 13.7173 3.2 13.8009C4.8 13.9532 10 14 10 14C10 14 14.203 13.994 17.001 13.793C17.392 13.7462 18.245 13.7432 19.005 12.95C19.605 12.3458 19.8 10.9743 19.8 10.9743C19.8 10.9743 20 9.36286 20 7.75245V6.24257C20 4.63117 19.8 3.02076 19.8 3.02076Z"
+								fill="#2C2C2C"
+							/>
+						</svg>
+					</a>
 				</div>
 			</div>
 		</aside>
 
 		<main class="main" id="about">
 			<!-- 1. PAGE HERO -->
-			<section class="about-hero">
-				<div class="about-hero__text">
-					<h1>
-						Комплексная реализация проектов инженерной и&nbsp;ИТ-инфраструктуры
-					</h1>
-					<p class="text">
+			<section class="page-hero page-hero--light">
+				<div class="page-hero__content">
+					<div class="page-hero__title-row">
+						<h1 class="page-hero__heading reveal-text">
+							Комплексная реализация проектов инженерной и&nbsp;ИТ-инфраструктуры
+						</h1>
+					</div>
+					<p class="text page-hero__desc reveal-text" delay="0.3s">
 						«Амплитек» (бывший «Параллакс Поволжье») берет на себя полный цикл
 						создания или модернизации инженерной и ИТ инфраструктуры зданий и
 						сооружений от проектирования до реализации.
 					</p>
 				</div>
-				<div class="about-hero__panel">
+				<div class="page-hero__deco">
 					<div class="lines lines--glass">
 						<div class="line line--v line--left"></div>
+						<div class="line line--v line--center line--v-half-top"></div>
+						<div class="line line--h line--middle"></div>
 						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="0" y2="100%" />
+							<line x1="100%" y1="0" x2="50%" y2="50%" />
 						</svg>
 					</div>
 				</div>
 			</section>
 
 			<!-- 2. MISSION -->
-			<section class="mission">
+			<section class="mission js-bg-zoom">
 				<img src="img/mission-bg.jpg" alt="Наша миссия" class="mission__bg" />
 				<div class="mission__overlay">
-					<span class="mission__label">[ наша миссия ]</span>
-					<h2 class="mission__heading">
-						Создаем умную безопасную энергоэффективную инфраструктуру для роста
-						бизнеса наших заказчиков.
-					</h2>
+					<span class="mission__label reveal-text">[ наша миссия ]</span>
+					<div class="reveal-text">
+						<h2 class="mission__heading ">
+							Создаем умную безопасную энергоэффективную инфраструктуру для роста
+							бизнеса наших заказчиков.
+						</h2>
+					</div>
 				</div>
 			</section>
 
-			<!-- 3. STATS (3 columns) -->
-			<section class="about-stats">
-				<div class="stats__grid">
-					<div class="stats__item">
-						<span class="stats__number">15+</span>
-						<span class="stats__sublabel">лет успешной работы</span>
+			<!-- 3. STATS -->
+			<section class="stats">
+				<div class="stats__row">
+					<div class="stats__item" data-aos="fade-zoom-in" data-aos-delay="0">
+						<span class="stat-block__number" data-count="15" data-suffix="+">15+</span>
+						<span class="stat-block__label reveal-text">лет на рынке</span>
 					</div>
-					<div class="stats__item">
-						<span class="stats__number">270+</span>
-						<span class="stats__sublabel">реализованных проектов</span>
+					<div class="stats__item" data-aos="fade-zoom-in" data-aos-delay="100">
+						<span class="stat-block__number" data-count="250" data-suffix="+">250+</span>
+						<span class="stat-block__label reveal-text">сотрудников</span>
 					</div>
-					<div class="stats__item stats__item--last">
-						<span class="stats__number">250+</span>
-						<span class="stats__sublabel">профильных сотрудников</span>
+					<div class="stats__item" data-aos="fade-zoom-in" data-aos-delay="200">
+						<span class="stat-block__number" data-count="270" data-suffix="+">270+</span>
+						<span class="stat-block__label reveal-text">реализованных проектов</span>
+					</div>
+					<div class="stats__item" data-aos="fade-zoom-in" data-aos-delay="300">
+						<span class="stat-block__number" data-count="40" data-suffix="+">40+</span>
+						<span class="stat-block__label reveal-text">крупных комплексных проектов</span>
 					</div>
 				</div>
 			</section>
 
 			<!-- 4. EXPERTISE HEADING -->
 			<div class="expertise-heading">
-				<h2>Высокая экспертиза, качество и опыт</h2>
+				<h2 class="reveal-text">Высокая экспертиза, качество и опыт</h2>
 			</div>
 
 			<!-- 5. INFO PANELS -->
 			<section class="info-panels">
-				<div class="info-panel info-panel--grey">
+				<div class="info-panel info-panel--grey" data-aos="fade-zoom-in" data-aos-delay="0">
 					<div class="info-panel__top">
 						<div class="info-panel__icon">
 							<svg
@@ -183,7 +266,7 @@
 						новый уровень контроля и энергоэффективности
 					</p>
 				</div>
-				<div class="info-panel info-panel--accent">
+				<div class="info-panel info-panel--accent" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="info-panel__top">
 						<div class="info-panel__icon">
 							<svg
@@ -216,53 +299,55 @@
 			<section class="timeline" id="history">
 				<div class="timeline__header">
 					<div class="section-title">
-						<span class="section-title__label label">[ история ]</span>
-						<h2 class="section-title__heading">
+						<span class="section-title__label label reveal-text">[ история ]</span>
+						<h2 class="section-title__heading reveal-text">
 							От первых проектов до комплексных решений
 						</h2>
 					</div>
 				</div>
 
 				<!-- TOP: Swiper year slides -->
-				<div class="swiper timeline__swiper" id="timelineSwiper">
+				<div class="swiper timeline__swiper" id="timelineSwiper" data-aos="fade-zoom-in" data-aos-delay="100">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year timeline__year--hero">2012</span>
-							<p class="timeline__desc">
-								Освоение нового вида услуг — проектирование и монтаж системы
-								электроснабжения и освещения.
-							</p>
+							<span class="timeline__year timeline__year--hero">2009</span>
+							<p class="timeline__desc">Начало работы обособленного подразделения казанской компании ООО «Параллакс» в Набережных Челнах, формирование команды.</p>
+						</div>
+						<div class="swiper-slide timeline__slide">
+							<span class="timeline__year">2011</span>
+							<p class="timeline__desc">Первый крупный контракт: реализация инженерных систем при строительстве «ИТ-Парка» г. Набережные Челны.</p>
+						</div>
+						<div class="swiper-slide timeline__slide">
+							<span class="timeline__year">2012</span>
+							<p class="timeline__desc">Освоение нового вида услуг — проектирование и монтаж системы электроснабжения и освещения.</p>
 						</div>
 						<div class="swiper-slide timeline__slide">
 							<span class="timeline__year">2016</span>
-							<p class="timeline__desc">
-								Освоение автоматизации и общеобменной вентиляции, применение
-								навыков при строительстве одной из первых больших школ в
-								Набережных Челнах.
-							</p>
+							<p class="timeline__desc">Освоение автоматизации и общеобменной вентиляции, применение навыков при строительстве одной из первых больших школ в Набережных Челнах.</p>
+						</div>
+						<div class="swiper-slide timeline__slide">
+							<span class="timeline__year">2016</span>
+							<p class="timeline__desc">Юридическое отделение от некогда «материнской» компании «Параллакс». Начало полностью самостоятельной хозяйственной деятельности ООО «Параллакс Поволжье».</p>
 						</div>
 						<div class="swiper-slide timeline__slide">
 							<span class="timeline__year">2017</span>
-							<p class="timeline__desc">
-								Юридическое отделение от некогда «материнской» компании
-								«Параллакс». Начало полностью самостоятельной хозяйственной
-								деятельности ООО «Параллакс Поволжье».
-							</p>
+							<p class="timeline__desc">Переезд в новый, более просторный офис на ул. Низаметдинова.</p>
+						</div>
+						<div class="swiper-slide timeline__slide">
+							<span class="timeline__year">2017</span>
+							<p class="timeline__desc">Открытие собственного цеха по сборке электрощитового оборудования.</p>
 						</div>
 						<div class="swiper-slide timeline__slide">
 							<span class="timeline__year">2022</span>
-							<p class="timeline__desc">
-								Масштабирование компетенций в сфере АСУТП, инфраструктуры ЦОД и
-								комплексных промышленных проектов.
-							</p>
+							<p class="timeline__desc">Преодоление барьера выручки в 1 млрд. руб. в год.</p>
 						</div>
 						<div class="swiper-slide timeline__slide">
 							<span class="timeline__year">2024</span>
-							<p class="timeline__desc">
-								Ребрендинг: ООО «Параллакс Поволжье» выходит на рынок под
-								торговой маркой «Амплитек». Запуск нового направления —
-								IT-инфраструктура ЦОД.
-							</p>
+							<p class="timeline__desc">Успешное завершение самого крупного проекта за всю историю компании — «Модернизация инженерных систем Набережночелнинской Инфекционной Больницы».</p>
+						</div>
+						<div class="swiper-slide timeline__slide">
+							<span class="timeline__year">2026</span>
+							<p class="timeline__desc">Ребрендинг: смена названия и фирменного стиля «Параллакс Поволжье» на «Амплитек». Утверждение стратегии компании.</p>
 						</div>
 					</div>
 				</div>
@@ -270,67 +355,45 @@
 				<!-- BOTTOM: Year navigation -->
 				<div class="timeline__nav">
 					<div class="timeline__dots-row">
-						<button
-							class="timeline__dot-btn is-active"
-							data-index="0"
-							aria-label="2012"
-						>
-							<span class="timeline__dot"
-								><span class="timeline__dot-inner"></span
-							></span>
-						</button>
-						<div class="timeline__dot-sep">
-							<div class="timeline__dot-sep-line"></div>
-						</div>
-						<button class="timeline__dot-btn" data-index="1" aria-label="2016">
-							<span class="timeline__dot"
-								><span class="timeline__dot-inner"></span
-							></span>
-						</button>
-						<div class="timeline__dot-sep">
-							<div class="timeline__dot-sep-line"></div>
-						</div>
-						<button class="timeline__dot-btn" data-index="2" aria-label="2017">
-							<span class="timeline__dot"
-								><span class="timeline__dot-inner"></span
-							></span>
-						</button>
-						<div class="timeline__dot-sep">
-							<div class="timeline__dot-sep-line"></div>
-						</div>
-						<button class="timeline__dot-btn" data-index="3" aria-label="2022">
-							<span class="timeline__dot"
-								><span class="timeline__dot-inner"></span
-							></span>
-						</button>
-						<div class="timeline__dot-sep">
-							<div class="timeline__dot-sep-line"></div>
-						</div>
-						<button class="timeline__dot-btn" data-index="4" aria-label="2024">
-							<span class="timeline__dot"
-								><span class="timeline__dot-inner"></span
-							></span>
-						</button>
+						<button class="timeline__dot-btn is-active" data-index="0" aria-label="2009"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="1" aria-label="2011"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="2" aria-label="2012"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="3" aria-label="2016"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="4" aria-label="2016"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="5" aria-label="2017"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="6" aria-label="2017"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="7" aria-label="2022"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="8" aria-label="2024"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
+						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
+						<button class="timeline__dot-btn" data-index="9" aria-label="2026"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
 					</div>
 					<div class="timeline__years-row">
-						<button class="timeline__year-label" data-index="0">2009</button>
-						<button class="timeline__year-label" data-index="0">2011</button>
-						<button class="timeline__year-label is-active" data-index="0">
-							2012
-						</button>
-						<button class="timeline__year-label" data-index="1">2016</button>
-						<button class="timeline__year-label" data-index="2">2017</button>
-						<button class="timeline__year-label" data-index="3">2022</button>
-						<button class="timeline__year-label" data-index="4">2024</button>
-						<button class="timeline__year-label" data-index="4">2026</button>
+						<button class="timeline__year-label is-active" data-index="0">2009</button>
+						<button class="timeline__year-label" data-index="1">2011</button>
+						<button class="timeline__year-label" data-index="2">2012</button>
+						<button class="timeline__year-label" data-index="3">2016</button>
+						<button class="timeline__year-label" data-index="4">2016</button>
+						<button class="timeline__year-label" data-index="5">2017</button>
+						<button class="timeline__year-label" data-index="6">2017</button>
+						<button class="timeline__year-label" data-index="7">2022</button>
+						<button class="timeline__year-label" data-index="8">2024</button>
+						<button class="timeline__year-label" data-index="9">2026</button>
 					</div>
 				</div>
 			</section>
 
 			<!-- 7. LICENCES & CERTIFICATES -->
 			<section class="certs" id="licences">
-				<h2 class="certs__heading">Лицензии и сертификаты</h2>
-				<div class="certs__slider-wrap">
+				<h2 class="certs__heading reveal-text">Лицензии и сертификаты</h2>
+				<div class="certs__slider-wrap" data-aos="fade-zoom-in" data-aos-delay="150">
 					<button
 						class="certs__btn certs__btn--prev"
 						id="certPrev"
@@ -356,7 +419,12 @@
 							<div class="swiper-slide">
 								<div class="cert-card">
 									<h3 class="cert-card__title">Выписка СРО: проектирование</h3>
-									<a href="img/sertificat1.jpg" class="cert-card__link" data-fancybox="certs" data-caption="Выписка СРО: проектирование">
+									<a
+										href="img/sertificat1.jpg"
+										class="cert-card__link"
+										data-fancybox="certs"
+										data-caption="Выписка СРО: проектирование"
+									>
 										<span class="cert-card__link-icon">
 											<svg
 												width="13"
@@ -382,7 +450,12 @@
 							<div class="swiper-slide">
 								<div class="cert-card">
 									<h3 class="cert-card__title">Выписка СРО: строительство</h3>
-									<a href="img/sertificat2.jpg" class="cert-card__link" data-fancybox="certs" data-caption="Выписка СРО: строительство">
+									<a
+										href="img/sertificat2.jpg"
+										class="cert-card__link"
+										data-fancybox="certs"
+										data-caption="Выписка СРО: строительство"
+									>
 										<span class="cert-card__link-icon">
 											<svg
 												width="13"
@@ -410,7 +483,12 @@
 									<h3 class="cert-card__title">
 										Сертификат соответствия на ISO
 									</h3>
-									<a href="img/sertificat3.jpg" class="cert-card__link" data-fancybox="certs" data-caption="Сертификат соответствия на ISO">
+									<a
+										href="img/sertificat3.jpg"
+										class="cert-card__link"
+										data-fancybox="certs"
+										data-caption="Сертификат соответствия на ISO"
+									>
 										<span class="cert-card__link-icon">
 											<svg
 												width="13"
@@ -460,7 +538,7 @@
 
 			<!-- 8. PEOPLE / CEO -->
 			<section class="people">
-				<div class="people__photo_left">
+				<div class="people__photo_left" data-aos="fade-zoom-in" data-aos-delay="0">
 					<svg
 						width="650"
 						height="580"
@@ -477,7 +555,7 @@
 						<img src="img/seo.png" alt="Евгений Чернов, директор" />
 					</div>
 				</div>
-				<div class="people__content">
+				<div class="people__content" ">
 					<div class="people__content-block">
 						<div class="people__content-block-top">
 							<span class="people__accent-mark"
@@ -499,10 +577,10 @@
 								</svg>
 								></span
 							>
-							<h2 class="people__heading">
+							<h2 class="people__heading reveal-text" duration="5s">
 								Мы верим, что компания <span>— это люди</span>
 							</h2>
-							<div class="people__text">
+							<div class="people__text reveal-text" duration="10s">
 								<p>
 									В Амплитек мы создаём условия, в которых каждый может раскрыть
 									свой потенциал и развиваться.
@@ -515,7 +593,7 @@
 								</p>
 							</div>
 						</div>
-						<span class="people__author">Евгений Чернов, директор</span>
+						<span class="people__author reveal-text" duration="15s">Евгений Чернов, директор</span>
 					</div>
 				</div>
 			</section>
@@ -524,27 +602,31 @@
 			<section class="team">
 				<div class="team__header">
 					<div class="section-title">
-						<span class="section-title__label label">[ команда ]</span>
-						<h2 class="section-title__heading">
+						<span class="section-title__label label reveal-text">[ команда ]</span>
+						<h2 class="section-title__heading reveal-text">
 							Амплитек — это грамотные инженеры, проектировщики, монтажные
 							бригады и менеджеры проектов, которые создают реальные решения для
 							предприятий и городов
 						</h2>
 					</div>
 				</div>
-				<div class="team__grid">
-					<div class="team-card">
-						<div class="team-card__photo">
-							<img src="img/team/chernov-e.jpg" alt="Евгений Чернов" />
-						</div>
-						<div class="team-card__body">
-							<p class="team-card__name">Евгений Чернов</p>
-							<p class="team-card__role label">
-								Директор, собственник компании
-							</p>
+				<div class="swiper team-swiper">
+				<div class="swiper-wrapper team__grid">
+					<div class="swiper-slide"  data-aos="fade-zoom-in" data-aos-delay="0">					
+						<div class="team-card">
+							<div class="team-card__photo">
+								<img src="img/team/chernov-e.jpg" alt="Евгений Чернов" />
+							</div>
+							<div class="team-card__body">
+								<p class="team-card__name">Евгений Чернов</p>
+								<p class="team-card__role label">
+									Директор, собственник компании
+								</p>
+							</div>
 						</div>
 					</div>
-					<div class="team-card">
+					<div class="swiper-slide"  data-aos="fade-zoom-in" data-aos-delay="200">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/anisimov.jpg" alt="Вячеслав Анисимов" />
 						</div>
@@ -553,7 +635,9 @@
 							<p class="team-card__role label">Технический директор</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="400">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/chernov-d.jpg" alt="Дмитрий Чернов" />
 						</div>
@@ -562,7 +646,9 @@
 							<p class="team-card__role label">Коммерческий директор</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="200">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/senchenko.jpg" alt="Сергей Сенченко" />
 						</div>
@@ -571,7 +657,9 @@
 							<p class="team-card__role label">Директор по производству</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="400">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/guryanov.jpg" alt="Михаил Гурьянов" />
 						</div>
@@ -580,7 +668,9 @@
 							<p class="team-card__role label">Руководитель департамента ИТ</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="600">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/kirilenko.jpg" alt="Николай Кириленко" />
 						</div>
@@ -591,7 +681,9 @@
 							</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="200">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/shilina.jpg" alt="Ольга Шилина" />
 						</div>
@@ -600,7 +692,9 @@
 							<p class="team-card__role label">Директор по персоналу</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="400">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/chupashov.jpg" alt="Артем Чупашов" />
 						</div>
@@ -609,7 +703,9 @@
 							<p class="team-card__role label">Финансовый директор</p>
 						</div>
 					</div>
-					<div class="team-card">
+					</div>
+					<div class="swiper-slide" data-aos="fade-zoom-in" data-aos-delay="600">					
+						<div class="team-card">
 						<div class="team-card__photo">
 							<img src="img/team/minnihanov.jpg" alt="Рамис Минниханов" />
 						</div>
@@ -620,6 +716,7 @@
 							</p>
 						</div>
 					</div>
+					</div>
 				</div>
 			</section>
 
@@ -628,41 +725,41 @@
 				<div class="clients__inner">
 					<div class="clients__content">
 						<div class="section-title">
-							<span class="section-title__label label">[ Наши клиенты ]</span>
-							<h2 class="section-title__heading">
+							<span class="section-title__label label reveal-text">[ Наши клиенты ]</span>
+							<h2 class="section-title__heading reveal-text">
 								Мы работаем как в республике Татарстан, так и за её пределами.
 								Наша команда постоянно развивается, что позволяет нам браться за
 								масштабные проекты любого уровня сложности
 							</h2>
 						</div>
 						<div class="clients__logos">
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="0">
 								<img src="img/sibur-logo.svg" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="200">
 								<img src="img/alabuga-logo.png" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="400">
 								<img src="img/kamaz-svg.svg" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="600">
 								<img src="img/tatneft-logo.svg" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="000">
 								<img src="img/haier.svg" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="200">
 								<img src="img/kams-beton-logo.svg" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="400">
 								<img src="img/begishevo.png" />
 							</div>
-							<div class="clients__logo-placeholder">
+							<div class="clients__logo-placeholder" data-aos="fade-zoom-in" data-aos-delay="600">
 								<img src="img/evrostile.svg" />
 							</div>
 						</div>
 					</div>
-					<div class="clients__map">
+					<div class="clients__map"  data-aos="fade-zoom-in" data-aos-delay="400">
 						<div class="lines lines--glass">
 							<img src="img/map.svg" />
 							<div class="line line--v line--center"></div>
@@ -677,8 +774,8 @@
 
 			<!-- 7. PARTNERS -->
 			<section class="partners" id="partners">
-				<h2 class="partners__title">Наши партнеры</h2>
-				<div class="partners__slider-wrap">
+				<h2 class="partners__title reveal-text">Наши партнеры</h2>
+				<div class="partners__slider-wrap"  data-aos="fade-zoom-in" data-aos-delay="200">
 					<button
 						class="partners__btn partners__btn--prev"
 						id="partnersPrev"
@@ -752,7 +849,9 @@
 			</section>
 		</main>
 
+		<!-- FOOTER -->
 		<footer class="footer" id="contacts">
+			<!-- Footer top -->
 			<div class="footer__top" id="footerTop">
 				<div class="footer__locations">
 					<div
@@ -837,11 +936,19 @@
 				<div class="footer__panels">
 					<div class="footer__panel" data-panel="0">
 						<div class="footer__info">
-							<p class="text">423806, РТ, г. Набережные Челны,<br />ул. Низаметдинова, д. 10</p>
-							<p class="text footer__schedule">Пн-Пт, 8:00-17:00<br />Обед 12:00-13:00</p>
+							<p class="text">
+								423806, РТ, г. Набережные Челны,<br />ул. Низаметдинова, д. 10
+							</p>
+							<p class="text footer__schedule">
+								Пн-Пт, 8:00-17:00<br />Обед 12:00-13:00
+							</p>
 							<div class="footer__main-contacts">
-								<a href="tel:+78552473999" class="footer__phone">(8552) 473-999</a>
-								<a href="mailto:info@prpv.ru" class="footer__email">info@prpv.ru</a>
+								<a href="tel:+78552473999" class="footer__phone"
+									>(8552) 473-999</a
+								>
+								<a href="mailto:info@prpv.ru" class="footer__email"
+									>info@prpv.ru</a
+								>
 							</div>
 						</div>
 						<div class="footer__map">
@@ -854,13 +961,19 @@
 							></iframe>
 						</div>
 					</div>
-					<div class="footer__panel" data-panel="1" style="display:none">
+					<div class="footer__panel" data-panel="1" style="display: none">
 						<div class="footer__info">
 							<p class="text">г. Казань, адрес уточняется</p>
-							<p class="text footer__schedule">Пн-Пт, 8:00-17:00<br />Обед 12:00-13:00</p>
+							<p class="text footer__schedule">
+								Пн-Пт, 8:00-17:00<br />Обед 12:00-13:00
+							</p>
 							<div class="footer__main-contacts">
-								<a href="tel:+78552473999" class="footer__phone">(8552) 473-999</a>
-								<a href="mailto:info@prpv.ru" class="footer__email">info@prpv.ru</a>
+								<a href="tel:+78552473999" class="footer__phone"
+									>(8552) 473-999</a
+								>
+								<a href="mailto:info@prpv.ru" class="footer__email"
+									>info@prpv.ru</a
+								>
 							</div>
 						</div>
 						<div class="footer__map">
@@ -873,13 +986,21 @@
 							></iframe>
 						</div>
 					</div>
-					<div class="footer__panel" data-panel="2" style="display:none">
+					<div class="footer__panel" data-panel="2" style="display: none">
 						<div class="footer__info">
-							<p class="text">г. Набережные Челны,<br />адрес склада уточняется</p>
-							<p class="text footer__schedule">Пн-Пт, 8:00-17:00<br />Обед 12:00-13:00</p>
+							<p class="text">
+								г. Набережные Челны,<br />адрес склада уточняется
+							</p>
+							<p class="text footer__schedule">
+								Пн-Пт, 8:00-17:00<br />Обед 12:00-13:00
+							</p>
 							<div class="footer__main-contacts">
-								<a href="tel:+78552473999" class="footer__phone">(8552) 473-999</a>
-								<a href="mailto:info@prpv.ru" class="footer__email">info@prpv.ru</a>
+								<a href="tel:+78552473999" class="footer__phone"
+									>(8552) 473-999</a
+								>
+								<a href="mailto:info@prpv.ru" class="footer__email"
+									>info@prpv.ru</a
+								>
 							</div>
 						</div>
 						<div class="footer__map">
@@ -899,13 +1020,13 @@
 			<div class="footer__bottom">
 				<div class="footer__content-area">
 					<nav class="footer__nav-col">
-						<a href="#about">о нас</a>
-						<a href="#services">Услуги</a>
-						<a href="#projects">Проекты</a>
-						<a href="#industries">отрасли</a>
-						<a href="#news">новости</a>
-						<a href="#career">карьера</a>
-						<a href="#contacts">Контакты</a>
+						<a href="about.html">о нас</a>
+						<a href="services.html">Услуги</a>
+						<a href="projects.html">проекты</a>
+						<a href="industries.html">отрасли</a>
+						<a href="news.html">новости</a>
+						<a href="career.html">карьера</a>
+						<a href="contacts.html">контакты</a>
 					</nav>
 					<div class="footer__depts">
 						<div class="footer-contact">
@@ -938,6 +1059,8 @@
 				</div>
 
 				<div class="footer__strip">
+				<!-- PC Version -->
+				<div class="footer__strip-pc">
 					<div class="footer__strip-logo">
 						<svg
 							width="45"
@@ -952,13 +1075,14 @@
 							/>
 						</svg>
 					</div>
-					<div class="footer__strip-legal">
-						<a href="#" class="label">реквизиты</a>
-						<span class="label">© ООО «Параллакс Поволжье» 2025</span>
-					</div>
-					<div class="footer__strip-privacy">
-						<a href="#" class="label">политика конфиденциальности</a>
-					</div>
+					<div class="footer__depts">
+						<div class="footer__strip-legal">
+							<a href="#" class="label">реквизиты</a>
+							<span class="label">© ООО «Параллакс Поволжье» 2025</span>
+						</div>
+							<div class="footer__strip-privacy">
+								<a href="#" class="label">политика конфиденциальности</a>
+							</div>
 					<div class="footer__socials">
 						<a href="#" class="footer__social-icon" aria-label="Telegram">
 							<svg
@@ -1025,12 +1149,108 @@
 							</svg>
 						</a>
 					</div>
+					</div>
+				</div>
+				<!-- Mobile Version -->
+				<div class="footer__strip-mob">
+					<div class="footer__strip-mob-top">
+						<div class="footer__strip-logo">
+							<svg
+								width="45"
+								height="37"
+								viewBox="0 0 45 37"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M28.0028 0H16.6214L22.1847 9.17096H10.93L0 27.0833H11.5792L22.2487 9.27749L33.0507 27.0833H11.6283L5.26389 36.9954L38.6129 37L44.6299 27.0833L28.0028 0Z"
+									fill="white"
+								/>
+							</svg>
+						</div>
+						<div class="footer__socials">
+							<a href="#" class="footer__social-icon" aria-label="Telegram">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="17"
+									viewBox="0 0 20 17"
+									fill="none"
+								>
+									<path
+										opacity="0.6"
+										d="M19.9362 1.51976L16.9062 15.7048C16.6802 16.7038 16.1002 16.9288 15.2622 16.4778L10.7172 13.1258L8.49216 15.2528C8.26716 15.4788 8.04116 15.7048 7.52516 15.7048L7.88016 11.0298L16.3582 3.32576C16.7122 2.97076 16.2612 2.84176 15.8102 3.13276L5.26916 9.77276L0.723157 8.38676C-0.275843 8.06476 -0.275843 7.38676 0.949157 6.93676L18.6142 0.0697602C19.4842 -0.18824 20.2262 0.26376 19.9362 1.51976Z"
+										fill="white"
+									/>
+								</svg>
+							</a>
+							<a href="#" class="footer__social-icon" aria-label="VK">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="14"
+									viewBox="0 0 24 14"
+									fill="none"
+								>
+									<path
+										opacity="0.6"
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+										d="M23.45 0.948C23.616 0.402 23.45 0 22.655 0H20.03C19.362 0 19.054 0.347 18.887 0.73C18.887 0.73 17.552 3.926 15.661 6.002C15.049 6.604 14.771 6.795 14.437 6.795C14.27 6.795 14.019 6.604 14.019 6.057V0.948C14.019 0.292 13.835 0 13.279 0H9.151C8.734 0 8.483 0.304 8.483 0.593C8.483 1.214 9.429 1.358 9.526 3.106V6.904C9.526 7.737 9.373 7.888 9.039 7.888C8.149 7.888 5.984 4.677 4.699 1.003C4.45 0.288 4.198 0 3.527 0H0.9C0.15 0 0 0.347 0 0.73C0 1.412 0.89 4.8 4.145 9.281C6.315 12.341 9.37 14 12.153 14C13.822 14 14.028 13.632 14.028 12.997V10.684C14.028 9.947 14.186 9.8 14.715 9.8C15.105 9.8 15.772 9.992 17.33 11.467C19.11 13.216 19.403 14 20.405 14H23.03C23.78 14 24.156 13.632 23.94 12.904C23.702 12.18 22.852 11.129 21.725 9.882C21.113 9.172 20.195 8.407 19.916 8.024C19.527 7.533 19.638 7.314 19.916 6.877C19.916 6.877 23.116 2.451 23.449 0.948"
+										fill="white"
+									/>
+								</svg>
+							</a>
+							<a href="#" class="footer__social-icon" aria-label="Rutube">
+								<svg
+									width="16"
+									height="14"
+									viewBox="0 0 16 14"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										opacity="0.6"
+										d="M11.1072 6.36077H3.30772V3.08736H11.1072C11.5628 3.08736 11.8796 3.17159 12.0386 3.31866C12.1975 3.46574 12.296 3.73853 12.296 4.13702V5.31239C12.296 5.73224 12.1975 6.00502 12.0386 6.15211C11.8796 6.29917 11.5628 6.36205 11.1072 6.36205V6.36077ZM11.6423 0.0012518H0V14H3.30772V9.44563H9.40354L12.296 14H16L12.8109 9.42427C13.9867 9.23947 14.5146 8.85731 14.95 8.22752C15.3854 7.59774 15.6038 6.59082 15.6038 5.24701V4.19737C15.6038 3.40037 15.5242 2.77058 15.3854 2.28788C15.2466 1.80515 15.0094 1.3853 14.6724 1.00817C14.3165 0.65117 13.9202 0.399743 13.4445 0.231297C12.9687 0.0842335 12.3743 0 11.6423 0V0.0012518Z"
+										fill="white"
+									/>
+								</svg>
+							</a>
+							<a href="#" class="footer__social-icon" aria-label="YouTube">
+								<svg
+									width="20"
+									height="14"
+									viewBox="0 0 20 14"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										opacity="0.6"
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+										d="M7.935 9.58282V3.98919L13.338 6.79596L7.935 9.58282ZM19.8 3.02076C19.8 3.02076 19.605 1.64823 19.005 1.04408C18.245 0.251813 17.392 0.247832 17.001 0.201052C14.203 1.33481e-07 10.004 0 10.004 0H9.996C9.996 0 5.798 1.33481e-07 2.999 0.201052C2.608 0.247832 1.756 0.250817 0.995 1.04408C0.395 1.64823 0.2 3.02076 0.2 3.02076C0.2 3.02076 0 4.63117 0 6.24257V7.75245C0 9.36286 0.2 10.9743 0.2 10.9743C0.2 10.9743 0.395 12.3458 0.995 12.95C1.755 13.7432 2.755 13.7173 3.2 13.8009C4.8 13.9532 10 14 10 14C10 14 14.203 13.994 17.001 13.793C17.392 13.7462 18.245 13.7432 19.005 12.95C19.605 12.3458 19.8 10.9743 19.8 10.9743C19.8 10.9743 20 9.36286 20 7.75245V6.24257C20 4.63117 19.8 3.02076 19.8 3.02076Z"
+										fill="white"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="footer__strip-mob-bottom">
+						<div class="footer__strip-legal">
+							<a href="#" class="label">реквизиты</a>
+							<span class="label">© ООО «Параллакс Поволжье» 2025</span>
+						</div>
+						<div class="footer__strip-privacy">
+							<a href="#" class="label">политика конфиденциальности</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</footer>
 
-		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-		<script src="js/app.js"></script>
+		<script src="js/lenis.min.js"></script>
+		<script src="js/aos.js"></script>
+		<script src="js/swiper-bundle.min.js"></script>
+		<script src="js/app.js?ver=4"></script>
 	</body>
 </html>
