@@ -1,8 +1,14 @@
 # Claude working files
 .claude/
+.kilo/
 
 # PowerShell scripts (dev helpers)
 *.ps1
+
+# Node.js dev helper scripts (root level)
+fix-all.js
+update-sidebar.js
+fix-*.js
 
 # Figma/dev text dumps
 *_tree.txt
@@ -10,6 +16,7 @@
 text_check.txt
 image_nodes.txt
 project_texts2.txt
+fix-all.txt
 
 # VSCode workspace
 *.code-workspace
@@ -20,3 +27,7 @@ CLAUDE.md
 # OS
 Thumbs.db
 .DS_Store
+
+# Stray files
+js/*.jpg
+js/*.png

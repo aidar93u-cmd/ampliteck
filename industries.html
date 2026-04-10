@@ -4,14 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Отрасли — АМПЛИТЕК</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="css/swiper-bundle.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="css/fancybox.css"
+		/>
 		<link rel="stylesheet" href="css/aos.css" />
-		<link rel="stylesheet" href="css/style.css?ver=22" />
+		<link rel="stylesheet" href="css/style.css?ver=23" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -94,36 +102,32 @@
 			<section class="page-hero">
 				<div class="page-hero__content">
 					<div class="page-hero__title-row">
-						<h1 class="page-hero__heading reveal-text">Отрасли</h1>
-						<span class="page-hero__badge">[9]</span>
+						<h1 class="page-hero__heading reveal-text">Отрасли <span class="page-hero__badge">[9]</span></h1>
+						
 					</div>
 					<p class="text page-hero__desc reveal-text" delay="0.3s">
 						Полный цикл внедрения инженерных и ИТ-систем на&nbsp;объекте
 					</p>
 				</div>
 				<div class="page-hero__deco">
-					<div class="lines lines--glass">
-						<div class="line line--v line--left"></div>
-						<div class="line line--v line--center line--v-half-top"></div>
-
-						<div class="line line--h line--middle"></div>
-
-						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="50%" y2="50%" />
+						<svg class="deco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+							<line class="deco-line deco-line--1" pathLength="1" x1="0.1" y1="0" x2="0.1" y2="100" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--2" pathLength="1" x1="50" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--3" pathLength="1" x1="0" y1="50" x2="100" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--4" pathLength="1" x1="100" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
 						</svg>
-					</div>
 				</div>
 			</section>
 
 			<!-- 2. INDUSTRIES ACCORDION -->
 			<section class="ind-accordion">
 				<!-- Item 1: Промышленность — OPEN -->
-				<div class="ind-accordion__item ind-accordion__item--open">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry1.svg" />
 						</div>
-						<span class="ind-accordion__name">Промышленность</span>
+						<span class="ind-accordion__name">Промышленность<span class="ind-accordion__name-count">[12]</span></span>
 						<span class="ind-accordion__count">12 проектов</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -299,12 +303,12 @@
 				</div>
 
 				<!-- Item 2: Фарма и медицина -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="400">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry2.svg" />
 						</div>
-						<span class="ind-accordion__name">Фарма и медицина</span>
+						<span class="ind-accordion__name">Фарма и медицина<span class="ind-accordion__name-count">[4]</span></span>
 						<span class="ind-accordion__count">4 проекта</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -469,12 +473,12 @@
 				</div>
 
 				<!-- Item 3: Здравоохранение -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="600">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry3.svg" />
 						</div>
-						<span class="ind-accordion__name">Здравоохранение</span>
+						<span class="ind-accordion__name">Здравоохранение<span class="ind-accordion__name-count">[10]</span></span>
 						<span class="ind-accordion__count">10 проектов</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -639,12 +643,12 @@
 				</div>
 
 				<!-- Item 4: Наука и образование -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="800">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry4.svg" />
 						</div>
-						<span class="ind-accordion__name">Наука и образование</span>
+						<span class="ind-accordion__name">Наука и образование<span class="ind-accordion__name-count">[8]</span></span>
 						<span class="ind-accordion__count">8 проектов</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -809,12 +813,12 @@
 				</div>
 
 				<!-- Item 5: Банки -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry5.svg" />
 						</div>
-						<span class="ind-accordion__name">Банки</span>
+						<span class="ind-accordion__name">Банки<span class="ind-accordion__name-count">[12]</span></span>
 						<span class="ind-accordion__count">12 проектов</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -982,14 +986,13 @@
 				</div>
 
 				<!-- Item 6: Спорт и торгово-развлекательные комплексы -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="400">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry6.svg" />
 						</div>
-						<span class="ind-accordion__name"
-							>Спорт и торгово-развлекательные комплексы</span
-						>
+						<span class="ind-accordion__name">Спорт и торгово-развлекательные комплексы<span class="ind-accordion__name-count">[4]</span></span>
+						
 						<span class="ind-accordion__count">4 проекта</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -1152,12 +1155,12 @@
 				</div>
 
 				<!-- Item 7: Транспортная инфраструктура -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="600">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry7.svg" />
 						</div>
-						<span class="ind-accordion__name">Транспортная инфраструктура</span>
+						<span class="ind-accordion__name">Транспортная инфраструктура<span class="ind-accordion__name-count">[10]</span></span>
 						<span class="ind-accordion__count">10 проектов</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -1328,12 +1331,12 @@
 				</div>
 
 				<!-- Item 8: Сельское хозяйство -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="800">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry8.svg" />
 						</div>
-						<span class="ind-accordion__name">Сельское хозяйство</span>
+						<span class="ind-accordion__name">Сельское хозяйство<span class="ind-accordion__name-count">[8]</span></span>
 						<span class="ind-accordion__count">8 проектов</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -1500,14 +1503,13 @@
 				</div>
 
 				<!-- Item 9: Культура и государственные объекты -->
-				<div class="ind-accordion__item">
+				<div class="ind-accordion__item" data-aos="fade-zoom-in" data-aos-delay="1000">
 					<div class="ind-accordion__header">
 						<div class="ind-accordion__icon accent-tri">
 							<img src="img/industry5.svg" />
 						</div>
-						<span class="ind-accordion__name"
-							>Культура и государственные объекты</span
-						>
+						<span class="ind-accordion__name">Культура и государственные объекты<span class="ind-accordion__name-count">[4]</span></span>
+						
 						<span class="ind-accordion__count">4 проекта</span>
 						<div class="ind-accordion__arrow">
 							<svg
@@ -1682,17 +1684,16 @@
 			<section class="service-cta" id="cta">
 				<!-- Left: CTA panel (accent green) -->
 				<div class="service-cta__left accent-tri-right">
-					<span class="service-cta__tag">[ услуги ]</span>
 
 					<div class="service-cta__text">
-						<h2 class="service-cta__headline">Рассчитать для вас ТКП?</h2>
-						<p class="service-cta__desc">
+						<h2 class="service-cta__headline reveal-text">Рассчитать для вас ТКП?</h2>
+						<p class="service-cta__desc reveal-text">
 							Оставьте ваши контакты, наши специалисты свяжутся с вами,
 							внимательно изучат заявку и вернутся с предложением
 						</p>
 					</div>
 
-					<div class="service-cta__phone-block">
+					<div class="service-cta__phone-block reveal-text">
 						<p class="service-cta__phone-label">
 							Или позвоните нам самостоятельно:
 						</p>
@@ -1705,9 +1706,9 @@
 
 				<!-- Right: Form panel (dark) -->
 				<div class="service-cta__right">
-					<p class="service-cta__form-tag">заполните форму</p>
+					<p class="service-cta__form-tag reveal-text">заполните форму</p>
 
-					<form class="cta-form" id="ctaForm" novalidate>
+					<form class="cta-form " id="ctaForm" novalidate>
 						<div class="cta-form__fields">
 							<!-- Row 1 -->
 							<div class="cta-form__field" data-required data-validate="name">
@@ -1827,7 +1828,7 @@
 									</svg>
 								</span>
 								<span class="cta-form__consent-text"
-									>Согласие на обработку персональных данных</span
+									>Согласие на обработку <a href="#">персональных данных</a></span
 								>
 							</label>
 
@@ -2255,9 +2256,10 @@
 			</div>
 		</footer>
 
+		<script src="js/lenis.min.js"></script>
 		<script src="js/aos.js"></script>
+		<script src="js/fancybox.umd.js"></script>
 		<script src="js/swiper-bundle.min.js"></script>
-		<script src="https://unpkg.com/imask"></script>
-		<script src="js/app.js?ver=4"></script>
+		<script src="js/app.js?ver=5"></script>
 	</body>
 </html>

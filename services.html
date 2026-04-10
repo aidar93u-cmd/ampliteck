@@ -4,14 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Услуги — АМПЛИТЕК</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="css/swiper-bundle.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="css/fancybox.css"
+		/>
 		<link rel="stylesheet" href="css/aos.css" />
-		<link rel="stylesheet" href="css/style.css?ver=22" />
+		<link rel="stylesheet" href="css/style.css?ver=23" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -163,8 +171,8 @@
 			<section class="page-hero">
 				<div class="page-hero__content">
 					<div class="page-hero__title-row">
-						<h1 class="page-hero__heading reveal-text">Услуги</h1>
-						<span class="page-hero__badge">[12]</span>
+						<h1 class="page-hero__heading reveal-text">Услуги
+						<span class="page-hero__badge">[12]</span></h1>
 					</div>
 					<p class="text page-hero__desc reveal-text" delay="0.3s">
 						За годы работы мы накопили большой опыт в проектировании и внедрении
@@ -173,16 +181,12 @@
 					</p>
 				</div>
 				<div class="page-hero__deco">
-					<div class="lines lines--glass">
-						<div class="line line--v line--left"></div>
-						<div class="line line--v line--center line--v-half-top"></div>
-
-						<div class="line line--h line--middle"></div>
-
-						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="50%" y2="50%" />
+						<svg class="deco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+							<line class="deco-line deco-line--1" pathLength="1" x1="0.1" y1="0" x2="0.1" y2="100" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--2" pathLength="1" x1="50" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--3" pathLength="1" x1="0" y1="50" x2="100" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--4" pathLength="1" x1="100" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
 						</svg>
-					</div>
 				</div>
 			</section>
 
@@ -197,7 +201,8 @@
 				</div>
 				<div class="svc-grid">
 					<!-- Row 1 -->
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Проектирование</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -212,8 +217,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+						<div class="svc-card">
 						<h3 class="svc-card__title">BIM Моделирование</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -228,8 +235,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Сети связи</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -244,10 +253,12 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
 
 					<!-- Row 2 -->
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Технические средства охраны</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -262,8 +273,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Системы противопожарной защиты</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -278,8 +291,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Автоматизация и диспетчеризация</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -294,10 +309,12 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
 
 					<!-- Row 3 -->
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Инфраструктура ЦОД</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -312,8 +329,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+						<div class="svc-card">
 						<h3 class="svc-card__title">АСУТП</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -328,8 +347,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Электрика и освещение</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -344,10 +365,12 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
 
 					<!-- Row 4 -->
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Вентиляция и кондиционирование</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -362,8 +385,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+						<div class="svc-card">
 						<h3 class="svc-card__title">
 							Шкафы электроснабжения и автоматизации
 						</h3>
@@ -380,8 +405,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="400">
+						<div class="svc-card">
 						<h3 class="svc-card__title">
 							Оснащение учреждений технологическим оборудованием
 						</h3>
@@ -398,10 +425,12 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
 
 					<!-- Row 5 -->
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="0">
+						<div class="svc-card">
 						<h3 class="svc-card__title">Мультимедийные системы</h3>
 						<span class="svc-card__arrow"
 							><svg
@@ -416,8 +445,10 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
-					<a class="svc-card" href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+					<a href="service-detail.html" data-aos="fade-zoom-in" data-aos-delay="200">
+						<div class="svc-card">
 						<h3 class="svc-card__title">
 							Сервисное обслуживание инженерных систем
 						</h3>
@@ -434,6 +465,7 @@
 									fill="#2C2C2C"
 								/></svg
 						></span>
+						</div>
 					</a>
 				</div>
 			</section>
@@ -840,7 +872,8 @@
 
 		<script src="js/lenis.min.js"></script>
 		<script src="js/aos.js"></script>
-				<script src="js/swiper-bundle.min.js"></script>
-		<script src="js/app.js?ver=4"></script>
+		<script src="js/fancybox.umd.js"></script>
+		<script src="js/swiper-bundle.min.js"></script>
+		<script src="js/app.js?ver=5"></script>
 	</body>
 </html>

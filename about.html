@@ -19,7 +19,7 @@
 			href="css/fancybox.css"
 		/>
 		<link rel="stylesheet" href="css/aos.css" />
-		<link rel="stylesheet" href="css/style.css?ver=22" />
+		<link rel="stylesheet" href="css/style.css?ver=23" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -101,8 +101,8 @@
 					</div>
 				</div>
 				<div class="sidebar__mob-socials">
-					<a href="#" class="sidebar__mob-social" aria-label="Telegram"
-						><svg
+					<a href="#" class="sidebar__mob-social" aria-label="Telegram">
+						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="20"
 							height="17"
@@ -113,10 +113,10 @@
 								opacity="0.6"
 								d="M19.9362 1.51976L16.9062 15.7048C16.6802 16.7038 16.1002 16.9288 15.2622 16.4778L10.7172 13.1258L8.49216 15.2528C8.26716 15.4788 8.04116 15.7048 7.52516 15.7048L7.88016 11.0298L16.3582 3.32576C16.7122 2.97076 16.2612 2.84176 15.8102 3.13276L5.26916 9.77276L0.723157 8.38676C-0.275843 8.06476 -0.275843 7.38676 0.949157 6.93676L18.6142 0.0697602C19.4842 -0.18824 20.2262 0.26376 19.9362 1.51976Z"
 								fill="#2C2C2C"
-							/></svg
-					></a>
-					<a href="#" class="sidebar__mob-social" aria-label="VK"
-						><svg
+							/></svg>
+					</a>
+					<a href="#" class="sidebar__mob-social" aria-label="VK">
+						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
 							height="14"
@@ -132,8 +132,8 @@
 							/>
 						</svg>
 					</a>
-					<a href="#" class="sidebar__mob-social" aria-label="Rutube"
-						><svg
+					<a href="#" class="sidebar__mob-social" aria-label="Rutube"	>
+						<svg
 							width="16"
 							height="14"
 							viewBox="0 0 16 14"
@@ -184,14 +184,12 @@
 					</p>
 				</div>
 				<div class="page-hero__deco">
-					<div class="lines lines--glass">
-						<div class="line line--v line--left"></div>
-						<div class="line line--v line--center line--v-half-top"></div>
-						<div class="line line--h line--middle"></div>
-						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="50%" y2="50%" />
+						<svg class="deco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+							<line class="deco-line deco-line--1" pathLength="1" x1="0.1" y1="0" x2="0.1" y2="100" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--2" pathLength="1" x1="50" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--3" pathLength="1" x1="0" y1="50" x2="100" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--4" pathLength="1" x1="100" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
 						</svg>
-					</div>
 				</div>
 			</section>
 
@@ -306,87 +304,155 @@
 					</div>
 				</div>
 
-				<!-- TOP: Swiper year slides -->
-				<div class="swiper timeline__swiper" id="timelineSwiper" data-aos="fade-zoom-in" data-aos-delay="100">
+				<!-- Main track swiper -->
+				<div class="swiper timeline__swiper" id="timelineSwiper">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year timeline__year--hero">2009</span>
-							<p class="timeline__desc">Начало работы обособленного подразделения казанской компании ООО «Параллакс» в Набережных Челнах, формирование команды.</p>
+
+						<div class="swiper-slide timeline__item is-active" data-index="0">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2009</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Начало работы обособленного подразделения казанской компании ООО «Параллакс» в Набережных Челнах, формирование команды.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2011</span>
-							<p class="timeline__desc">Первый крупный контракт: реализация инженерных систем при строительстве «ИТ-Парка» г. Набережные Челны.</p>
+
+						<div class="swiper-slide timeline__item" data-index="1">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2011</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Первый крупный контракт: реализация инженерных систем при строительстве «ИТ-Парка» г. Набережные Челны.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2012</span>
-							<p class="timeline__desc">Освоение нового вида услуг — проектирование и монтаж системы электроснабжения и освещения.</p>
+
+						<div class="swiper-slide timeline__item" data-index="2">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2012</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Освоение нового вида услуг — проектирование и монтаж системы электроснабжения и освещения.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2016</span>
-							<p class="timeline__desc">Освоение автоматизации и общеобменной вентиляции, применение навыков при строительстве одной из первых больших школ в Набережных Челнах.</p>
+
+						<div class="swiper-slide timeline__item" data-index="3">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2016</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Освоение автоматизации и общеобменной вентиляции, применение навыков при строительстве одной из первых больших школ в Набережных Челнах.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2016</span>
-							<p class="timeline__desc">Юридическое отделение от некогда «материнской» компании «Параллакс». Начало полностью самостоятельной хозяйственной деятельности ООО «Параллакс Поволжье».</p>
+
+						<div class="swiper-slide timeline__item" data-index="4">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2016</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Юридическое отделение от некогда «материнской» компании «Параллакс». Начало полностью самостоятельной хозяйственной деятельности ООО «Параллакс Поволжье».</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2017</span>
-							<p class="timeline__desc">Переезд в новый, более просторный офис на ул. Низаметдинова.</p>
+
+						<div class="swiper-slide timeline__item" data-index="5">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2017</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Переезд в новый, более просторный офис на ул. Низаметдинова.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2017</span>
-							<p class="timeline__desc">Открытие собственного цеха по сборке электрощитового оборудования.</p>
+
+						<div class="swiper-slide timeline__item" data-index="6">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2017</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Открытие собственного цеха по сборке электрощитового оборудования.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2022</span>
-							<p class="timeline__desc">Преодоление барьера выручки в 1 млрд. руб. в год.</p>
+
+						<div class="swiper-slide timeline__item" data-index="7">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2022</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Преодоление барьера выручки в 1 млрд. руб. в год.</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2024</span>
-							<p class="timeline__desc">Успешное завершение самого крупного проекта за всю историю компании — «Модернизация инженерных систем Набережночелнинской Инфекционной Больницы».</p>
+
+						<div class="swiper-slide timeline__item" data-index="8">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2024</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Успешное завершение самого крупного проекта за всю историю компании — «Модернизация инженерных систем Набережночелнинской Инфекционной Больницы».</p>
+							</div>
 						</div>
-						<div class="swiper-slide timeline__slide">
-							<span class="timeline__year">2026</span>
-							<p class="timeline__desc">Ребрендинг: смена названия и фирменного стиля «Параллакс Поволжье» на «Амплитек». Утверждение стратегии компании.</p>
+
+						<div class="swiper-slide timeline__item" data-index="9">
+							<div class="timeline__item-top">
+								<span class="timeline__item-year">2026</span>
+							</div>
+							<div class="timeline__item-track">
+								<div class="timeline__item-dot"></div>
+								<div class="timeline__item-small-dot"></div>
+							</div>
+							<div class="timeline__item-bottom">
+								<p class="timeline__item-desc">Ребрендинг: смена названия и фирменного стиля «Параллакс Поволжье» на «Амплитек». Утверждение стратегии компании.</p>
+							</div>
 						</div>
+
 					</div>
 				</div>
 
-				<!-- BOTTOM: Year navigation -->
-				<div class="timeline__nav">
-					<div class="timeline__dots-row">
-						<button class="timeline__dot-btn is-active" data-index="0" aria-label="2009"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="1" aria-label="2011"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="2" aria-label="2012"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="3" aria-label="2016"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="4" aria-label="2016"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="5" aria-label="2017"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="6" aria-label="2017"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="7" aria-label="2022"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="8" aria-label="2024"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-						<div class="timeline__dot-sep"><div class="timeline__dot-sep-line"></div></div>
-						<button class="timeline__dot-btn" data-index="9" aria-label="2026"><span class="timeline__dot"><span class="timeline__dot-inner"></span></span></button>
-					</div>
-					<div class="timeline__years-row">
-						<button class="timeline__year-label is-active" data-index="0">2009</button>
-						<button class="timeline__year-label" data-index="1">2011</button>
-						<button class="timeline__year-label" data-index="2">2012</button>
-						<button class="timeline__year-label" data-index="3">2016</button>
-						<button class="timeline__year-label" data-index="4">2016</button>
-						<button class="timeline__year-label" data-index="5">2017</button>
-						<button class="timeline__year-label" data-index="6">2017</button>
-						<button class="timeline__year-label" data-index="7">2022</button>
-						<button class="timeline__year-label" data-index="8">2024</button>
-						<button class="timeline__year-label" data-index="9">2026</button>
-					</div>
+				<!-- Bottom mini year nav -->
+				<div class="timeline__years-nav" id="timelineYearsNav">
+					<button class="timeline__year-btn is-active" data-index="0">2009</button>
+					<button class="timeline__year-btn" data-index="1">2011</button>
+					<button class="timeline__year-btn" data-index="2">2012</button>
+					<button class="timeline__year-btn" data-index="3">2016</button>
+					<button class="timeline__year-btn" data-index="4">2016</button>
+					<button class="timeline__year-btn" data-index="5">2017</button>
+					<button class="timeline__year-btn" data-index="6">2017</button>
+					<button class="timeline__year-btn" data-index="7">2022</button>
+					<button class="timeline__year-btn" data-index="8">2024</button>
+					<button class="timeline__year-btn" data-index="9">2026</button>
 				</div>
 			</section>
 
@@ -416,6 +482,101 @@
 					</button>
 					<div class="swiper certs-swiper">
 						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="cert-card">
+									<h3 class="cert-card__title">Выписка СРО: проектирование</h3>
+									<a
+										href="img/sertificat1.jpg"
+										class="cert-card__link"
+										data-fancybox="certs"
+										data-caption="Выписка СРО: проектирование"
+									>
+										<span class="cert-card__link-icon">
+											<svg
+												width="13"
+												height="18"
+												viewBox="0 0 13 18"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M5.73828 7.59375V1.125H0.535156C0.423268 1.125 0.315962 1.16945 0.236846 1.24856C0.157729 1.32768 0.113281 1.43499 0.113281 1.54688V16.4531C0.113281 16.565 0.157729 16.6723 0.236846 16.7514C0.315962 16.8306 0.423268 16.875 0.535156 16.875H12.0664C12.1783 16.875 12.2856 16.8306 12.3647 16.7514C12.4438 16.6723 12.4883 16.565 12.4883 16.4531V7.875H6.01953C5.94494 7.875 5.8734 7.84537 5.82066 7.79262C5.76791 7.73988 5.73828 7.66834 5.73828 7.59375Z"
+													fill="#C8CBD3"
+												/>
+												<path
+													d="M6.86328 1.4649V6.60861C6.86328 6.64591 6.8781 6.68167 6.90447 6.70805C6.93084 6.73442 6.96661 6.74924 7.00391 6.74924H12.1476C12.1615 6.74925 12.1751 6.74514 12.1867 6.73744C12.1982 6.72973 12.2072 6.71878 12.2126 6.70595C12.2179 6.69313 12.2193 6.67901 12.2167 6.66537C12.214 6.65174 12.2073 6.63921 12.1975 6.62935L6.98316 1.41498C6.97331 1.40518 6.96078 1.39853 6.94714 1.39585C6.93351 1.39317 6.91939 1.39459 6.90656 1.39993C6.89374 1.40528 6.88278 1.4143 6.87508 1.42586C6.86738 1.43742 6.86327 1.45101 6.86328 1.4649Z"
+													fill="#C8CBD3"
+												/>
+											</svg>
+										</span>
+										Смотреть оригинал
+									</a>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="cert-card">
+									<h3 class="cert-card__title">Выписка СРО: строительство</h3>
+									<a
+										href="img/sertificat2.jpg"
+										class="cert-card__link"
+										data-fancybox="certs"
+										data-caption="Выписка СРО: строительство"
+									>
+										<span class="cert-card__link-icon">
+											<svg
+												width="13"
+												height="18"
+												viewBox="0 0 13 18"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M5.73828 7.59375V1.125H0.535156C0.423268 1.125 0.315962 1.16945 0.236846 1.24856C0.157729 1.32768 0.113281 1.43499 0.113281 1.54688V16.4531C0.113281 16.565 0.157729 16.6723 0.236846 16.7514C0.315962 16.8306 0.423268 16.875 0.535156 16.875H12.0664C12.1783 16.875 12.2856 16.8306 12.3647 16.7514C12.4438 16.6723 12.4883 16.565 12.4883 16.4531V7.875H6.01953C5.94494 7.875 5.8734 7.84537 5.82066 7.79262C5.76791 7.73988 5.73828 7.66834 5.73828 7.59375Z"
+													fill="#C8CBD3"
+												/>
+												<path
+													d="M6.86328 1.4649V6.60861C6.86328 6.64591 6.8781 6.68167 6.90447 6.70805C6.93084 6.73442 6.96661 6.74924 7.00391 6.74924H12.1476C12.1615 6.74925 12.1751 6.74514 12.1867 6.73744C12.1982 6.72973 12.2072 6.71878 12.2126 6.70595C12.2179 6.69313 12.2193 6.67901 12.2167 6.66537C12.214 6.65174 12.2073 6.63921 12.1975 6.62935L6.98316 1.41498C6.97331 1.40518 6.96078 1.39853 6.94714 1.39585C6.93351 1.39317 6.91939 1.39459 6.90656 1.39993C6.89374 1.40528 6.88278 1.4143 6.87508 1.42586C6.86738 1.43742 6.86327 1.45101 6.86328 1.4649Z"
+													fill="#C8CBD3"
+												/>
+											</svg>
+										</span>
+										Смотреть оригинал
+									</a>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="cert-card">
+									<h3 class="cert-card__title">
+										Сертификат соответствия на ISO
+									</h3>
+									<a
+										href="img/sertificat3.jpg"
+										class="cert-card__link"
+										data-fancybox="certs"
+										data-caption="Сертификат соответствия на ISO"
+									>
+										<span class="cert-card__link-icon">
+											<svg
+												width="13"
+												height="18"
+												viewBox="0 0 13 18"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M5.73828 7.59375V1.125H0.535156C0.423268 1.125 0.315962 1.16945 0.236846 1.24856C0.157729 1.32768 0.113281 1.43499 0.113281 1.54688V16.4531C0.113281 16.565 0.157729 16.6723 0.236846 16.7514C0.315962 16.8306 0.423268 16.875 0.535156 16.875H12.0664C12.1783 16.875 12.2856 16.8306 12.3647 16.7514C12.4438 16.6723 12.4883 16.565 12.4883 16.4531V7.875H6.01953C5.94494 7.875 5.8734 7.84537 5.82066 7.79262C5.76791 7.73988 5.73828 7.66834 5.73828 7.59375Z"
+													fill="#C8CBD3"
+												/>
+												<path
+													d="M6.86328 1.4649V6.60861C6.86328 6.64591 6.8781 6.68167 6.90447 6.70805C6.93084 6.73442 6.96661 6.74924 7.00391 6.74924H12.1476C12.1615 6.74925 12.1751 6.74514 12.1867 6.73744C12.1982 6.72973 12.2072 6.71878 12.2126 6.70595C12.2179 6.69313 12.2193 6.67901 12.2167 6.66537C12.214 6.65174 12.2073 6.63921 12.1975 6.62935L6.98316 1.41498C6.97331 1.40518 6.96078 1.39853 6.94714 1.39585C6.93351 1.39317 6.91939 1.39459 6.90656 1.39993C6.89374 1.40528 6.88278 1.4143 6.87508 1.42586C6.86738 1.43742 6.86327 1.45101 6.86328 1.4649Z"
+													fill="#C8CBD3"
+												/>
+											</svg>
+										</span>
+										Смотреть оригинал
+									</a>
+								</div>
+							</div>
 							<div class="swiper-slide">
 								<div class="cert-card">
 									<h3 class="cert-card__title">Выписка СРО: проектирование</h3>
@@ -551,7 +712,7 @@
 							fill="#2C2C2C"
 						/>
 					</svg>
-					<div class="people__photo">
+					<div class="people__photo"  data-aos="fade-zoom-in" data-aos-delay="400">
 						<img src="img/seo.png" alt="Евгений Чернов, директор" />
 					</div>
 				</div>
@@ -774,8 +935,8 @@
 
 			<!-- 7. PARTNERS -->
 			<section class="partners" id="partners">
-				<h2 class="partners__title reveal-text">Наши партнеры</h2>
-				<div class="partners__slider-wrap"  data-aos="fade-zoom-in" data-aos-delay="200">
+				<h2 class="partners__title reveal-text" duration="10s">Наши партнеры</h2>
+				<div class="partners__slider-wrap"  data-aos="fade-zoom-in" data-aos-delay="400">
 					<button
 						class="partners__btn partners__btn--prev"
 						id="partnersPrev"
@@ -796,9 +957,34 @@
 							/>
 						</svg>
 					</button>
-					<div class="swiper partners-swiper">
+					<div class="swiper partners-swiper" >
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
+								<div class="partner-logo">
+									<img src="img/partner1.svg" alt="Партнер" />
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="partner-logo">
+									<img src="img/partner2.svg" alt="Партнер" />
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="partner-logo">
+									<img src="img/partner3.svg" alt="Партнер" />
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="partner-logo">
+									<img src="img/partner4.png" alt="Партнер" />
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="partner-logo">
+									<img src="img/partner5.png" alt="Партнер" />
+								</div>
+							</div>
+								<div class="swiper-slide">
 								<div class="partner-logo">
 									<img src="img/partner1.svg" alt="Партнер" />
 								</div>
@@ -1250,7 +1436,8 @@
 
 		<script src="js/lenis.min.js"></script>
 		<script src="js/aos.js"></script>
+		<script src="js/fancybox.umd.js"></script>
 		<script src="js/swiper-bundle.min.js"></script>
-		<script src="js/app.js?ver=4"></script>
+		<script src="js/app.js?ver=5"></script>
 	</body>
 </html>

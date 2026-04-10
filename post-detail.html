@@ -7,15 +7,22 @@
 			Завершили реконструкцию инженерной инфраструктуры ГАУЗ
 			«Набережно-Челнинская инфекционная больница»
 		</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="css/swiper-bundle.min.css" />
+		<link
+			rel="stylesheet"
+			href="css/swiper-bundle.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="css/fancybox.css"
+		/>
 		<link rel="stylesheet" href="css/aos.css" />
-		<link rel="stylesheet" href="css/style.css?ver=22" />
+		<link rel="stylesheet" href="css/style.css?ver=23" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -101,28 +108,28 @@
 					«Набережно-Челнинская инфекционная больница»
 				</h1>
 				<div>
-					<div class="detail-hero__tagline">
+					<div class="detail-hero__tagline  reveal-text">
 						<span class="detail-hero__tagline-text">24 марта 2025</span>
 					</div>
 				</div>
 				<div class="detail-hero__deco" aria-hidden="true">
-					<div class="lines lines--glass">
-						<div class="line line--v line--left"></div>
-						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="0%" y2="100%" />
+						<svg class="deco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+							<line class="deco-line deco-line--1" pathLength="1" x1="0.1" y1="0" x2="0.1" y2="100" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--2" pathLength="1" x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
 						</svg>
-					</div>
 				</div>
 			</section>
 
 			<!-- 2. ARTICLE BODY -->
 			<section class="detail-body" data-aos="fade-up">
 				<div class="detail-body__wrap">
-						<img
+						<div class="js-bg-zoom post-full__img-wrap">
+							<img
 							src="img/news/post-inner-img1.jpg"
 							alt="Новость 2"
 							class="post-full__img"
 						/>
+						</div>
 						<p>
 							В Набережных Челнах завершены масштабные работы по реконструкции
 							инженерной инфраструктуры ГАУЗ «Набережно-Челнинская инфекционная
@@ -165,11 +172,13 @@
 							помещениях (в том числе отрицательного — в боксах для пациентов).
 						</p>
 
-						<img
+						<div class="js-bg-zoom post-full__img-wrap">
+							<img
 							src="img/news/post-inner-img2.jpg"
 							alt="Новость 2"
 							class="post-full__img"
 						/>
+						</div>
 						<h2>Надежность энергоснабжения</h2>
 
 						<p>
@@ -306,6 +315,7 @@
 						</div>
 					</div>
 				</div>
+				<a href="news.html" class="post-related__mob-all">Смотреть все новости [+]</a>
 			</section>
 		</main>
 
@@ -710,7 +720,8 @@
 
 		<script src="js/lenis.min.js"></script>
 		<script src="js/aos.js"></script>
-				<script src="js/swiper-bundle.min.js"></script>
-		<script src="js/app.js?ver=4"></script>
+		<script src="js/fancybox.umd.js"></script>
+		<script src="js/swiper-bundle.min.js"></script>
+		<script src="js/app.js?ver=5"></script>
 	</body>
 </html>

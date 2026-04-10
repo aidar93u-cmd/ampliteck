@@ -4,15 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Реконструкция инфекционной больницы — АМПЛИТЕК</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="css/swiper-bundle.min.css" />
+		<link
+			rel="stylesheet"
+			href="css/swiper-bundle.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="css/fancybox.css"
+		/>
 		<link rel="stylesheet" href="css/aos.css" />
-		<link rel="stylesheet" href="css/style.css?ver=22" />
+		<link rel="stylesheet" href="css/style.css?ver=23" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -97,7 +104,7 @@
 					Реконструкция набережночелнинской инфекционной больницы
 				</h1>
 				<div>
-					<div class="detail-hero__tagline">
+					<div class="detail-hero__tagline reveal-text">
 						<span class="detail-hero__tagline-text"
 							>Республика Татарстан, Набережные Челны</span
 						>
@@ -105,13 +112,10 @@
 				</div>
 				<!-- Decorative diagonal lines on right panel -->
 				<div class="detail-hero__deco" aria-hidden="true">
-					<div class="lines lines--glass">
-						<div class="line line--v line--left"></div>
-
-						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="0%" y2="100%" />
+						<svg class="deco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+							<line class="deco-line deco-line--1" pathLength="1" x1="0.1" y1="0" x2="0.1" y2="100" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--2" pathLength="1" x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
 						</svg>
-					</div>
 				</div>
 			</section>
 
@@ -120,7 +124,7 @@
 				<div class="detail-cover__bg js-bg-zoom">
 					<img class="bg-layer" src="img/project/project-hero.jpg" alt="" />
 				</div>
-				<div class="detail-cover__info">
+				<div class="detail-cover__info" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="detail-cover__row">
 						<span class="detail-cover__label">Заказчик</span>
 						<span class="detail-cover__value"
@@ -316,32 +320,24 @@
 				<div class="swiper project-gallery__swiper" id="gallerySwiper">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<img
-								src="img/project/project-gallery-1.jpg"
-								alt="Реализация проекта"
-								class="project-gallery__photo"
-							/>
+							<a href="img/project/project-gallery-1.jpg" data-fancybox="gallery" class="js-bg-zoom project-gallery__link">
+								<img src="img/project/project-gallery-1.jpg" alt="Реализация проекта" class="project-gallery__photo" />
+							</a>
 						</div>
 						<div class="swiper-slide">
-							<img
-								src="img/project/project-gallery-1.jpg"
-								alt="Реализация проекта"
-								class="project-gallery__photo"
-							/>
+							<a href="img/project/project-gallery-1.jpg" data-fancybox="gallery" class="js-bg-zoom project-gallery__link">
+								<img src="img/project/project-gallery-1.jpg" alt="Реализация проекта" class="project-gallery__photo" />
+							</a>
 						</div>
 						<div class="swiper-slide">
-							<img
-								src="img/project/project-gallery-1.jpg"
-								alt="Реализация проекта"
-								class="project-gallery__photo"
-							/>
+							<a href="img/project/project-gallery-1.jpg" data-fancybox="gallery" class="js-bg-zoom project-gallery__link">
+								<img src="img/project/project-gallery-1.jpg" alt="Реализация проекта" class="project-gallery__photo" />
+							</a>
 						</div>
 						<div class="swiper-slide">
-							<img
-								src="img/project/project-gallery-1.jpg"
-								alt="Реализация проекта"
-								class="project-gallery__photo"
-							/>
+							<a href="img/project/project-gallery-1.jpg" data-fancybox="gallery" class="js-bg-zoom project-gallery__link">
+								<img src="img/project/project-gallery-1.jpg" alt="Реализация проекта" class="project-gallery__photo" />
+							</a>
 						</div>
 					</div>
 				</div>
@@ -398,7 +394,8 @@
 				<div class="swiper project-related__swiper" id="relatedSwiper">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<article class="case-card">
+							<a href="project-detail.html" class="case-card">
+							<div class="case-card__inner">
 								<div class="case-card__img-wrap">
 									<img
 										src="img/project/related-1.jpg"
@@ -423,11 +420,13 @@
 										<span class="case-card__year label">2023</span>
 									</div>
 								</div>
-							</article>
+							</div>
+							</a>
 						</div>
 
 						<div class="swiper-slide">
-							<article class="case-card">
+							<a href="project-detail.html" class="case-card">
+							<div class="case-card__inner">
 								<div class="case-card__img-wrap">
 									<img
 										src="img/project/related-2.jpg"
@@ -451,11 +450,13 @@
 										<span class="case-card__year label">2020</span>
 									</div>
 								</div>
-							</article>
+							</div>
+							</a>
 						</div>
 
 						<div class="swiper-slide">
-							<article class="case-card">
+							<a href="project-detail.html" class="case-card">
+							<div class="case-card__inner">
 								<div class="case-card__img-wrap">
 									<img
 										src="img/project/related-3.jpg"
@@ -479,10 +480,12 @@
 										<span class="case-card__year label">2024</span>
 									</div>
 								</div>
-							</article>
+							</div>
+							</a>
 						</div>
 						<div class="swiper-slide">
-							<article class="case-card">
+							<a href="project-detail.html" class="case-card">
+							<div class="case-card__inner">
 								<div class="case-card__img-wrap">
 									<img
 										src="img/project/related-1.jpg"
@@ -507,11 +510,13 @@
 										<span class="case-card__year label">2023</span>
 									</div>
 								</div>
-							</article>
+							</div>
+							</a>
 						</div>
 
 						<div class="swiper-slide">
-							<article class="case-card">
+							<a href="project-detail.html" class="case-card">
+							<div class="case-card__inner">
 								<div class="case-card__img-wrap">
 									<img
 										src="img/project/related-2.jpg"
@@ -535,11 +540,13 @@
 										<span class="case-card__year label">2020</span>
 									</div>
 								</div>
-							</article>
+							</div>
+							</a>
 						</div>
 
 						<div class="swiper-slide">
-							<article class="case-card">
+							<a href="project-detail.html" class="case-card">
+							<div class="case-card__inner">
 								<div class="case-card__img-wrap">
 									<img
 										src="img/project/related-3.jpg"
@@ -563,7 +570,8 @@
 										<span class="case-card__year label">2024</span>
 									</div>
 								</div>
-							</article>
+							</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -971,7 +979,8 @@
 
 		<script src="js/lenis.min.js"></script>
 		<script src="js/aos.js"></script>
-				<script src="js/swiper-bundle.min.js"></script>
-		<script src="js/app.js?ver=4"></script>
+		<script src="js/fancybox.umd.js"></script>
+		<script src="js/swiper-bundle.min.js"></script>
+		<script src="js/app.js?ver=5"></script>
 	</body>
 </html>

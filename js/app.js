@@ -8,11 +8,36 @@
 
 	/* ---- AOS init — fill empty data-aos with default animation ---- */
 	document.querySelectorAll('[data-aos]').forEach(function (el) {
-		if (!el.getAttribute('data-aos')) el.setAttribute('data-aos', 'fade-zoom-in')
+		if (!el.getAttribute('data-aos'))
+			el.setAttribute('data-aos', 'fade-zoom-in')
 	})
 	if (typeof AOS !== 'undefined') {
 		AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out' })
 	}
+
+	/* ---- SVG deco lines draw animation ---- */
+	;(function () {
+		var DELAYS = [150, 400, 650, 900] // ms stagger per line
+		var DURATION = '4.9s'
+		var EASING = 'cubic-bezier(0.4, 0, 0.2, 1)'
+
+		document.querySelectorAll('.deco-lines').forEach(function (svg) {
+			var lines = svg.querySelectorAll('.deco-line')
+			lines.forEach(function (line, i) {
+				var len = line.getTotalLength()
+				line.style.strokeDasharray = len
+				line.style.strokeDashoffset = len
+				setTimeout(
+					function () {
+						line.style.transition =
+							'stroke-dashoffset ' + DURATION + ' ' + EASING
+						line.style.strokeDashoffset = 0
+					},
+					DELAYS[i] !== undefined ? DELAYS[i] : i * 1250,
+				)
+			})
+		})
+	})()
 
 	/* ---- Lenis smooth scroll ---- */
 	var lenis
@@ -122,9 +147,9 @@
 				col.className = 'roller-col'
 				var inner = document.createElement('span')
 				inner.className = 'roller-col__inner'
-				for (var i = 0; i <= 9; i++) {
+				for (var i = 0; i <= 10; i++) {
 					var s = document.createElement('span')
-					s.textContent = i
+					s.textContent = i === 10 ? 0 : i
 					inner.appendChild(s)
 				}
 				col.appendChild(inner)
@@ -149,7 +174,10 @@
 				/* Left digits (higher place values) spin slower */
 				var delay = (cols.length - 1 - i) * 180
 				setTimeout(function () {
-					col.inner.style.setProperty('--roller-to', col.digit)
+					col.inner.style.setProperty(
+						'--roller-to',
+						col.digit === 0 ? 10 : col.digit,
+					)
 				}, delay)
 			})
 		}
@@ -376,43 +404,70 @@
 		var timelineSwiper = new Swiper('#timelineSwiper', {
 			slidesPerView: 3,
 			spaceBetween: 0,
-			freeMode: false,
 			grabCursor: true,
 			on: {
 				slideChange: function () {
-					syncTimelineNav(this.activeIndex)
+					syncTimeline(this.activeIndex)
 				},
+			},
+
+			breakpoints: {
+				0: { slidesPerView: 1.1 },
+				480: { slidesPerView: 3 },
 			},
 		})
 
-		function syncTimelineNav(activeIndex) {
-			document
-				.querySelectorAll('.timeline__dot-btn')
-				.forEach(function (btn, i) {
-					btn.classList.toggle('is-active', i === activeIndex)
+		function syncTimeline(activeIndex) {
+			// Update slide active state
+			document.querySelectorAll('.timeline__item').forEach(function (item, i) {
+				item.classList.toggle('is-active', i === activeIndex)
+			})
+			// Update year nav buttons
+			var yearBtns = document.querySelectorAll('.timeline__year-btn')
+			yearBtns.forEach(function (btn, i) {
+				btn.classList.toggle('is-active', i === activeIndex)
+			})
+			// Scroll year nav to keep active button visible
+			var nav = document.getElementById('timelineYearsNav')
+			var activeBtn = yearBtns[activeIndex]
+			if (nav && activeBtn) {
+				var btnLeft = activeBtn.offsetLeft
+				var btnWidth = activeBtn.offsetWidth
+				var navWidth = nav.offsetWidth
+				nav.scrollTo({
+					left: btnLeft - navWidth / 2 + btnWidth / 2,
+					behavior: 'smooth',
 				})
-			document
-				.querySelectorAll('.timeline__year-label')
-				.forEach(function (lbl) {
-					var idx = parseInt(lbl.dataset.index, 10)
-					lbl.classList.toggle('is-active', idx === activeIndex)
-				})
+			}
 		}
 
-		document.querySelectorAll('.timeline__dot-btn').forEach(function (btn) {
+		document.querySelectorAll('.timeline__year-btn').forEach(function (btn) {
 			btn.addEventListener('click', function () {
 				var idx = parseInt(this.dataset.index, 10)
 				timelineSwiper.slideTo(idx)
+				syncTimeline(idx)
 			})
 		})
 
-		document.querySelectorAll('.timeline__year-label').forEach(function (lbl) {
-			lbl.addEventListener('click', function () {
-				var idx = parseInt(this.dataset.index, 10)
-				timelineSwiper.slideTo(idx)
+		// Click on slide to make it active
+		document.querySelectorAll('.timeline__item').forEach(function (item, i) {
+			item.addEventListener('click', function () {
+				timelineSwiper.slideTo(i)
+				syncTimeline(i)
 			})
 		})
 	}
+
+	/* ---- Services show more (index.html, mobile) ---- */
+	;(function () {
+		var btn = document.querySelector('.services__show-more')
+		var list = document.querySelector('.services__list')
+		if (!btn || !list) return
+		btn.addEventListener('click', function () {
+			list.classList.add('is-expanded')
+			btn.classList.add('is-hidden')
+		})
+	})()
 
 	/* ---- News load more (news.html) ---- */
 	;(function () {
@@ -439,7 +494,45 @@
 					nextEl: '#galleryNext',
 					disabledClass: 'swiper-button-disabled',
 				},
+
+				breakpoints: {
+					0: { slidesPerView: 1.3, spaceBetween: 10 },
+					1024: { slidesPerView: 1.1, spaceBetween: 30 },
+				},
 			})
+
+			/* zoom-out on gallery links when visible */
+			var galleryLinks = document.querySelectorAll('.project-gallery__link')
+			if (galleryLinks.length && 'IntersectionObserver' in window) {
+				var galleryObs = new IntersectionObserver(
+					function (entries) {
+						entries.forEach(function (entry) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-zoomed')
+								galleryObs.unobserve(entry.target)
+							}
+						})
+					},
+					{ threshold: 0.15 },
+				)
+				galleryLinks.forEach(function (el) {
+					galleryObs.observe(el)
+				})
+			}
+
+			/* Fancybox for gallery */
+			if (typeof Fancybox !== 'undefined') {
+				Fancybox.bind('[data-fancybox="gallery"]', {
+					Toolbar: {
+						display: {
+							left: [],
+							middle: ['prev', 'counter', 'next'],
+							right: ['close'],
+						},
+					},
+					Images: { zoom: true },
+				})
+			}
 		}
 
 		/* ---- Related projects Swiper ---- */
@@ -453,6 +546,7 @@
 					disabledClass: 'swiper-button-disabled',
 				},
 				breakpoints: {
+					0: { slidesPerView: 1.1 },
 					768: { slidesPerView: 2 },
 					1024: { slidesPerView: 3 },
 				},
@@ -462,7 +556,7 @@
 		/* ---- Post related Swiper ---- */
 		if (document.getElementById('postRelatedSwiper')) {
 			new Swiper('#postRelatedSwiper', {
-				slidesPerView: 1,
+				slidesPerView: 1.4,
 				spaceBetween: 0,
 				navigation: {
 					prevEl: '#postRelatedPrev',
@@ -470,13 +564,38 @@
 					disabledClass: 'swiper-button-disabled',
 				},
 				breakpoints: {
-					768: { slidesPerView: 2 },
+					768: { slidesPerView: 2, spaceBetween: 0 },
 				},
 			})
 		}
 	})()
 
 	/* ---- Service detail page (service-detail.html) ---- */
+
+	/* Service projects mobile swiper */
+	;(function () {
+		var el = document.getElementById('svcProjectsSwiper')
+		if (!el) return
+		var swiper = null
+		function initOrDestroy() {
+			if (window.innerWidth <= 768) {
+				if (!swiper) {
+					swiper = new Swiper('#svcProjectsSwiper', {
+						slidesPerView: 1.2,
+						spaceBetween: 0,
+						allowTouchMove: true,
+					})
+				}
+			} else {
+				if (swiper) {
+					swiper.destroy(true, true)
+					swiper = null
+				}
+			}
+		}
+		initOrDestroy()
+		window.addEventListener('resize', initOrDestroy)
+	})()
 
 	/* Checkbox toggle */
 	;(function () {
@@ -817,60 +936,181 @@
 
 	/* ---- Projects filter (projects.html) ---- */
 	;(function () {
-		var filterBar = document.querySelector('.proj-filter')
+		var filterBar = document.getElementById('projFilter')
 		if (!filterBar) return
 
 		var groups = filterBar.querySelectorAll('.proj-filter__group')
+		var cards = document.querySelectorAll('.projects__grid .case-card')
 
+		/* Group → data attribute map */
+		var groupAttr = {
+			objects: 'industry',
+			services: 'services',
+			industries: 'geo',
+		}
+
+		/* --- Filter logic --- */
+		function getChecked() {
+			var active = {}
+			groups.forEach(function (g) {
+				var key = g.getAttribute('data-filter-group')
+				var vals = Array.from(g.querySelectorAll('input:checked')).map(
+					function (cb) {
+						return cb.value
+					},
+				)
+				if (vals.length) active[key] = vals
+			})
+			return active
+		}
+
+		function applyFilter() {
+			var active = getChecked()
+			var total = 0
+			Object.keys(active).forEach(function (k) {
+				total += active[k].length
+			})
+
+			cards.forEach(function (card) {
+				var pass = Object.keys(active).every(function (key) {
+					var attr = groupAttr[key] || key
+					var cardVals = (card.getAttribute('data-' + attr) || '').split(',')
+					return active[key].some(function (v) {
+						return cardVals.indexOf(v) !== -1
+					})
+				})
+				if (pass) {
+					card.style.display = ''
+					card.offsetHeight // force reflow
+					card.classList.remove('is-hiding')
+				} else {
+					card.classList.add('is-hiding')
+					setTimeout(
+						(function (c) {
+							return function () {
+								if (c.classList.contains('is-hiding')) c.style.display = 'none'
+							}
+						})(card),
+						300,
+					)
+				}
+			})
+
+			updateMobCount(total)
+			updateResetCount(total)
+		}
+
+		/* --- Badge per group --- */
 		function updateBadge(group) {
-			var checked = group.querySelectorAll('input[type="checkbox"]:checked')
+			var checked = group.querySelectorAll('input:checked').length
 			var badge = group.querySelector('.proj-filter__badge')
-			if (checked.length > 0) {
-				badge.textContent = '[' + checked.length + ']'
+			if (checked > 0) {
+				badge.textContent = '[' + checked + ']'
 				badge.style.display = ''
 			} else {
 				badge.style.display = 'none'
 			}
 		}
 
+		/* --- Mobile count badge on button --- */
+		function updateMobCount(total) {
+			var el = document.getElementById('projFilterMobCount')
+			if (!el) return
+			el.textContent = total > 0 ? '[' + total + ']' : ''
+		}
+
+		/* --- Reset button count --- */
+		function updateResetCount(total) {
+			var el = document.getElementById('projFilterResetCount')
+			if (!el) return
+			el.textContent = total > 0 ? '[' + total + ']' : ''
+		}
+
+		/* --- Desktop: dropdown toggle (close others) --- */
+		var isMobile = function () {
+			return window.innerWidth <= 768
+		}
+
 		groups.forEach(function (group) {
 			var btn = group.querySelector('.proj-filter__btn')
-			var checkboxes = group.querySelectorAll('input[type="checkbox"]')
 
 			btn.addEventListener('click', function (e) {
 				e.stopPropagation()
-				var wasOpen = group.classList.contains('is-open')
-				groups.forEach(function (g) {
-					g.classList.remove('is-open')
-				})
-				if (!wasOpen) {
-					group.classList.add('is-open')
+				if (isMobile()) {
+					/* Mobile: accordion toggle */
+					group.classList.toggle('is-open')
+				} else {
+					/* Desktop: dropdown, close others */
+					var wasOpen = group.classList.contains('is-open')
+					groups.forEach(function (g) {
+						g.classList.remove('is-open')
+					})
+					if (!wasOpen) group.classList.add('is-open')
 				}
 			})
 
-			checkboxes.forEach(function (cb) {
+			group.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
 				cb.addEventListener('change', function () {
 					updateBadge(group)
+					applyFilter()
 				})
 			})
 		})
 
+		/* Close desktop dropdowns on outside click */
 		document.addEventListener('click', function () {
-			groups.forEach(function (g) {
-				g.classList.remove('is-open')
-			})
+			if (!isMobile()) {
+				groups.forEach(function (g) {
+					g.classList.remove('is-open')
+				})
+			}
 		})
+		filterBar.addEventListener('click', function (e) {
+			e.stopPropagation()
+		})
+
+		/* --- Reset --- */
+		function resetAll(closePanel) {
+			groups.forEach(function (group) {
+				group.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+					cb.checked = false
+				})
+				updateBadge(group)
+			})
+			cards.forEach(function (card) {
+				card.style.display = ''
+				card.classList.remove('is-hiding')
+			})
+			updateMobCount(0)
+			updateResetCount(0)
+			if (closePanel) closeMobPanel()
+		}
 
 		var resetBtn = document.getElementById('projFilterReset')
 		if (resetBtn) {
 			resetBtn.addEventListener('click', function () {
-				groups.forEach(function (group) {
-					var checkboxes = group.querySelectorAll('input[type="checkbox"]')
-					checkboxes.forEach(function (cb) {
-						cb.checked = false
-					})
-					updateBadge(group)
-				})
+				resetAll(true)
+			})
+		}
+
+		/* --- Mobile panel open/close --- */
+		function closeMobPanel() {
+			filterBar.classList.remove('is-mob-open')
+			document.body.style.overflow = ''
+		}
+
+		var mobBtn = document.getElementById('projFilterMobBtn')
+		if (mobBtn) {
+			mobBtn.addEventListener('click', function () {
+				filterBar.classList.add('is-mob-open')
+				document.body.style.overflow = 'hidden'
+			})
+		}
+
+		var mobClose = document.getElementById('projFilterMobClose')
+		if (mobClose) {
+			mobClose.addEventListener('click', function () {
+				closeMobPanel()
 			})
 		}
 	})()
@@ -891,15 +1131,20 @@
 			triEls.forEach(function (el) {
 				var rect = el.getBoundingClientRect()
 				// progress: 0 when bottom of viewport, 1 when top
-				var progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height)
+				var progress =
+					(window.innerHeight - rect.top) / (window.innerHeight + rect.height)
 				var offset = (progress - 0.5) * rect.height * FACTOR * 2
 				el.style.setProperty('--parallax-tri-y', (-offset).toFixed(2) + 'px')
 			})
 			triRightEls.forEach(function (el) {
 				var rect = el.getBoundingClientRect()
-				var progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height)
+				var progress =
+					(window.innerHeight - rect.top) / (window.innerHeight + rect.height)
 				var offset = (progress - 0.5) * rect.height * FACTOR * 2
-				el.style.setProperty('--parallax-tri-right-y', (-offset).toFixed(2) + 'px')
+				el.style.setProperty(
+					'--parallax-tri-right-y',
+					(-offset).toFixed(2) + 'px',
+				)
 			})
 		}
 

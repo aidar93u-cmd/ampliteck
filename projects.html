@@ -4,14 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Проекты — АМПЛИТЕК</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="css/swiper-bundle.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="css/fancybox.css"
+		/>
 		<link rel="stylesheet" href="css/aos.css" />
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style.css?ver=23" />
 	</head>
 	<body>
 		<header class="mobile-header">
@@ -94,8 +102,8 @@
 			<section class="page-hero">
 				<div class="page-hero__content">
 					<div class="page-hero__title-row">
-						<h1 class="page-hero__heading reveal-text">Проекты</h1>
-						<span class="page-hero__badge">[45]</span>
+						<h1 class="page-hero__heading reveal-text">Проекты
+						<span class="page-hero__badge">[45]</span></h1>
 					</div>
 					<p class="text page-hero__desc reveal-text" delay="0.3s">
 						За годы работы мы накопили большой опыт в проектировании и внедрении
@@ -104,24 +112,38 @@
 					</p>
 				</div>
 				<div class="page-hero__deco">
-					<div class="lines lines--glass">
-						<div class="line line--v line--left"></div>
-						<div class="line line--v line--center line--v-half-top"></div>
-
-						<div class="line line--h line--middle"></div>
-
-						<svg class="line line--diag">
-							<line x1="100%" y1="0" x2="50%" y2="50%" />
+						<svg class="deco-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+							<line class="deco-line deco-line--1" pathLength="1" x1="0.1" y1="0" x2="0.1" y2="100" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--2" pathLength="1" x1="50" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--3" pathLength="1" x1="0" y1="50" x2="100" y2="50" vector-effect="non-scaling-stroke"/>
+							<line class="deco-line deco-line--4" pathLength="1" x1="100" y1="0" x2="50" y2="50" vector-effect="non-scaling-stroke"/>
 						</svg>
-					</div>
 				</div>
 			</section>
 
+			<!-- Mobile filter toggle (hidden on desktop) -->
+			<div class="proj-filter-mob-bar">
+				<button class="proj-filter-mob-btn" id="projFilterMobBtn" type="button">
+					<span>Фильтры
+					<span class="proj-filter-mob-count" id="projFilterMobCount"></span></span>
+					<span class="proj-filter-mob-arrow">
+						<svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="#2C2C2C" stroke-width="1.5"/></svg>
+					</span>
+				</button>
+			</div>
+
 			<!-- 2. FILTER BAR -->
-			<div class="proj-filter" data-aos="fade-up">
+			<div class="proj-filter" id="projFilter">
+				<!-- Mobile header (hidden on desktop) -->
+				<div class="proj-filter__mob-head">
+					<span class="proj-filter__mob-title">Фильтры</span>
+					<button class="proj-filter__mob-close" id="projFilterMobClose" type="button" aria-label="Закрыть">
+						<svg width="20" height="20" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#d9d9d9" stroke-width="1"/></svg>
+					</button>
+				</div>
 				<div class="proj-filter__group" data-filter-group="objects">
 					<button class="proj-filter__btn" type="button">
-						<span class="proj-filter__label">Объекты</span>
+						<span class="proj-filter__label">Отрасль</span>
 						<span class="proj-filter__badge" style="display: none"></span>
 						<svg
 							class="proj-filter__arrow"
@@ -201,7 +223,7 @@
 				</div>
 				<div class="proj-filter__group" data-filter-group="industries">
 					<button class="proj-filter__btn" type="button">
-						<span class="proj-filter__label">Отрасли</span>
+						<span class="proj-filter__label">География</span>
 						<span class="proj-filter__badge" style="display: none"></span>
 						<svg
 							class="proj-filter__arrow"
@@ -219,25 +241,31 @@
 					</button>
 					<div class="proj-filter__dropdown">
 						<label class="proj-filter__option"
-							><input type="checkbox" value="chemistry" /> Химия и
-							нефтехимия</label
+							><input type="checkbox" value="nabchelny" /> Набережные Челны</label
 						>
 						<label class="proj-filter__option"
-							><input type="checkbox" value="transport" /> Транспорт</label
+							><input type="checkbox" value="kazan" /> Казань</label
 						>
 						<label class="proj-filter__option"
-							><input type="checkbox" value="sport" /> Спорт</label
+							><input type="checkbox" value="almetievsk" /> Альметьевск</label
+						>
+						<label class="proj-filter__option"
+							><input type="checkbox" value="yelabuga" /> Елабуга</label
+						>
+						<label class="proj-filter__option"
+							><input type="checkbox" value="mendeleevsk" /> Менделеевск</label
 						>
 					</div>
 				</div>
 				<button class="proj-filter__reset" type="button" id="projFilterReset">
-					<span>Сбросить фильтры [X]</span>
+					<span class="proj-filter__reset-text">Сбросить фильтры [х]</span>
 				</button>
 			</div>
 
 			<!-- 3. PROJECTS GRID -->
 			<div class="projects__grid">
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="0">
+				<a href="project-detail.html" class="case-card" data-industry="industry" data-services="design,engineering" data-geo="nabchelny">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="0">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-1.jpg"
@@ -258,8 +286,10 @@
 							<span class="case-card__year label">2023</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="200">
+				<a href="project-detail.html" class="case-card" data-industry="transport" data-services="engineering" data-geo="nabchelny">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-2.jpg"
@@ -279,8 +309,10 @@
 							<span class="case-card__year label">2020</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="400">
+				<a href="project-detail.html" class="case-card" data-industry="industry" data-services="engineering,automation" data-geo="nabchelny">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="400">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-3.jpg"
@@ -300,8 +332,10 @@
 							<span class="case-card__year label">2024</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="0">
+				<a href="project-detail.html" class="case-card" data-industry="chemistry" data-services="engineering,automation" data-geo="mendeleevsk">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="0">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-4.jpg"
@@ -324,8 +358,10 @@
 							<span class="case-card__year label">2023</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="200">
+				<a href="project-detail.html" class="case-card" data-industry="industry" data-services="engineering" data-geo="nabchelny">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-5.jpg"
@@ -346,8 +382,10 @@
 							<span class="case-card__year label">2025</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="400">
+				<a href="project-detail.html" class="case-card" data-industry="culture" data-services="engineering,multimedia" data-geo="nabchelny">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="400">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-6.jpg"
@@ -369,8 +407,10 @@
 							<span class="case-card__year label">2020</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="0">
+				<a href="project-detail.html" class="case-card" data-industry="education" data-services="automation,multimedia" data-geo="almetievsk">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="0">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-7.jpg"
@@ -392,8 +432,10 @@
 							<span class="case-card__year label">2020</span>
 						</div>
 					</div>
+					</div>
 				</a>
-				<a href="project-detail.html" class="case-card" data-aos="fade-zoom-in" data-aos-delay="200">
+				<a href="project-detail.html" class="case-card" data-industry="industry" data-services="design" data-geo="yelabuga">
+					<div class="case-card__inner" data-aos="fade-zoom-in" data-aos-delay="200">
 					<div class="case-card__img-wrap">
 						<img
 							src="img/project-8.jpg"
@@ -415,6 +457,7 @@
 							<span class="case-card__city label">г. Набережные Челны</span>
 							<span class="case-card__year label">2025</span>
 						</div>
+					</div>
 					</div>
 				</a>
 			</div>
@@ -820,7 +863,8 @@
 
 		<script src="js/lenis.min.js"></script>
 		<script src="js/aos.js"></script>
-				<script src="js/swiper-bundle.min.js"></script>
-		<script src="js/app.js?ver=4"></script>
+		<script src="js/fancybox.umd.js"></script>
+		<script src="js/swiper-bundle.min.js"></script>
+		<script src="js/app.js?ver=5"></script>
 	</body>
 </html>
