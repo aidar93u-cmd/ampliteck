@@ -677,6 +677,9 @@ h3 {
 	max-width: 33.3%;
 	width: 100%;
 }
+.projects__grid .swiper-slide .case-card{
+	max-width: 100%;
+}
 .case-card__inner {
 	display: flex;
 	flex-direction: column;
@@ -3021,6 +3024,7 @@ h4 {
 }
 .project-related__swiper .case-card {
 	width: 100%;
+    max-width: 100%;
 	display: flex;
 }
 .project-related__swiper .case-card__inner {
@@ -6036,6 +6040,7 @@ h4 {
 	.service-projects {
 		padding-top: 70px;
 		padding-bottom: 70px;
+        overflow: hidden;
 	}
 	.service-projects__swiper .projects__grid {
 		flex-wrap: nowrap;
