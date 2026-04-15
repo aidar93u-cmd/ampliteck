@@ -5057,7 +5057,6 @@ h4 {
 	}
 	.sidebar__content {
 		flex: 1;
-		overflow-y: auto;
 		gap: 0;
 	}
 	.sidebar__nav {
