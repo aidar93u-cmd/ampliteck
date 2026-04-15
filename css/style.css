@@ -677,7 +677,7 @@ h3 {
 	max-width: 33.3%;
 	width: 100%;
 }
-.projects__grid .swiper-slide .case-card{
+.projects__grid .swiper-slide .case-card {
 	max-width: 100%;
 }
 .case-card__inner {
@@ -1180,6 +1180,8 @@ h3 {
 	flex-direction: column;
 	gap: var(--space-4);
 	padding-top: 18px;
+	padding-bottom: 18px;
+	justify-content: flex-end;
 }
 .footer__strip-legal a,
 .footer__strip-legal span {
@@ -1193,6 +1195,9 @@ h3 {
 .footer__strip-privacy {
 	flex: 0 0 33.3%;
 	padding-top: 18px;
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 18px;
 }
 .footer__strip-privacy a {
 	font-size: 12px;
@@ -3024,7 +3029,7 @@ h4 {
 }
 .project-related__swiper .case-card {
 	width: 100%;
-    max-width: 100%;
+	max-width: 100%;
 	display: flex;
 }
 .project-related__swiper .case-card__inner {
@@ -4244,7 +4249,6 @@ h4 {
 	font-size: 14px;
 	line-height: 1.6;
 	color: var(--color-text-primary);
-	opacity: 0.65;
 	max-width: 591px;
 }
 .service-hero__btn {
@@ -5384,8 +5388,22 @@ h4 {
 		font-size: 14px;
 	}
 }
-
+.page-hero__lines-mobile {
+	display: none;
+}
 @media (max-width: 768px) {
+	.page-hero__lines-mobile {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+	.detail-hero__panel-top {
+		gap: 19px;
+	}
+	.service-hero__desc {
+		margin-bottom: 50px;
+	}
 	.footer__strip-pc {
 		display: none;
 	}
@@ -5868,7 +5886,7 @@ h4 {
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		padding: 18px 15px;
+		padding: 32px 15px;
 		font-family: 'Inter', sans-serif;
 		font-size: 14px;
 		font-weight: 400;
@@ -5877,6 +5895,9 @@ h4 {
 		background: none;
 		border: none;
 		border-bottom: 1px solid var(--color-border);
+	}
+	.vacancy-item__title {
+		font-size: 16px;
 	}
 	.footer__nav-col {
 		flex: none;
@@ -6020,6 +6041,11 @@ h4 {
 		flex-direction: column;
 		gap: 25px;
 	}
+	.post-related__swiper {
+		width: 100%;
+		border-top: 1px solid #d9d9d9;
+		border-bottom: 1px solid #d9d9d9;
+	}
 	.service-steps__grid {
 		padding: 0 15px;
 	}
@@ -6040,7 +6066,7 @@ h4 {
 	.service-projects {
 		padding-top: 70px;
 		padding-bottom: 70px;
-        overflow: hidden;
+		overflow: hidden;
 	}
 	.service-projects__swiper .projects__grid {
 		flex-wrap: nowrap;
@@ -6063,6 +6089,9 @@ h4 {
 		flex-direction: row;
 		align-items: center;
 		flex-shrink: 0;
+	}
+	.footer__strip-mob-bottom {
+		gap: 15px;
 	}
 	.step__line {
 		width: 1px;
@@ -6275,6 +6304,7 @@ h4 {
 		padding: 15px;
 		flex-direction: column;
 		gap: var(--space-16);
+		border-right: 1px solid #d9d9d9;
 	}
 	.news-card__top-row {
 		display: flex;
@@ -6303,6 +6333,7 @@ h4 {
 	}
 	.press__text-col {
 		padding: 0 0 15px 0;
+		gap: 0;
 	}
 	.press-card {
 		background-color: var(--color-bg-main);
