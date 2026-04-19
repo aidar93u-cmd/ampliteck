@@ -4,29 +4,44 @@
 	var sidebar = document.getElementById('sidebar')
 	var burger = document.getElementById('burger')
 	var overlay = document.getElementById('sidebarOverlay')
+	var closeBtn = document.getElementById('sidebarClose')
 	var SCROLL_THRESH = 800
 
-	/* ---- AOS init — fill empty data-aos with default animation ---- */
+	// Guard: stop execution if critical elements are missing
+	if (!sidebar || !burger || !overlay) return
+
+	/* ---- AOS init ---- */
 	document.querySelectorAll('[data-aos]').forEach(function (el) {
-		if (!el.getAttribute('data-aos'))
+		if (!el.getAttribute('data-aos')) {
 			el.setAttribute('data-aos', 'fade-zoom-in')
+		}
 	})
+
 	if (typeof AOS !== 'undefined') {
-		AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out' })
+		AOS.init({
+			duration: 700,
+			once: true,
+			offset: 80,
+			easing: 'ease-out',
+		})
 	}
 
-	/* ---- SVG deco lines draw animation ---- */
+	/* ---- SVG deco lines animation ---- */
 	;(function () {
-		var DELAYS = [150, 400, 650, 900] // ms stagger per line
+		var DELAYS = [150, 400, 650, 900]
 		var DURATION = '4.9s'
 		var EASING = 'cubic-bezier(0.4, 0, 0.2, 1)'
 
 		document.querySelectorAll('.deco-lines').forEach(function (svg) {
 			var lines = svg.querySelectorAll('.deco-line')
+
 			lines.forEach(function (line, i) {
+				if (typeof line.getTotalLength !== 'function') return
+
 				var len = line.getTotalLength()
 				line.style.strokeDasharray = len
 				line.style.strokeDashoffset = len
+
 				setTimeout(
 					function () {
 						line.style.transition =
@@ -39,7 +54,7 @@
 		})
 	})()
 
-	/* ---- Lenis smooth scroll ---- */
+	/* ---- Lenis ---- */
 	var lenis
 	if (typeof Lenis !== 'undefined') {
 		lenis = new Lenis({
@@ -47,87 +62,134 @@
 			smoothWheel: true,
 			smoothTouch: false,
 		})
+
 		function raf(time) {
 			lenis.raf(time)
 			requestAnimationFrame(raf)
 		}
+
 		requestAnimationFrame(raf)
 	}
 
-	/* ---- Burger / sidebar open-close ---- */
+	/* ---- Scrollbar compensation ---- */
+	function getScrollbarWidth() {
+		return window.innerWidth - document.documentElement.clientWidth
+	}
+
+	/* ---- Sidebar controls ---- */
 	function openSidebar() {
+		var scrollBarWidth = getScrollbarWidth()
+
 		sidebar.classList.add('is-open')
 		overlay.classList.add('is-active')
 		burger.classList.add('is-active')
+
 		document.body.style.overflow = 'hidden'
+		document.body.style.paddingRight = scrollBarWidth + 'px' // prevent layout shift
 	}
 
 	function closeSidebar() {
 		sidebar.classList.remove('is-open')
 		overlay.classList.remove('is-active')
 		burger.classList.remove('is-active')
+
 		document.body.style.overflow = ''
+		document.body.style.paddingRight = ''
 	}
 
 	burger.addEventListener('click', function () {
-		if (sidebar.classList.contains('is-open')) {
-			closeSidebar()
-		} else {
-			openSidebar()
-		}
+		sidebar.classList.contains('is-open') ? closeSidebar() : openSidebar()
 	})
 
 	overlay.addEventListener('click', closeSidebar)
-
-	var closeBtn = document.getElementById('sidebarClose')
 	if (closeBtn) closeBtn.addEventListener('click', closeSidebar)
 
-	/* Close sidebar on nav link click (mobile) */
-	var navLinks = sidebar.querySelectorAll('a')
-	navLinks.forEach(function (link) {
+	/* Close sidebar on nav click (mobile) */
+	sidebar.querySelectorAll('a').forEach(function (link) {
 		link.addEventListener('click', function () {
-			if (window.innerWidth <= 1024) {
-				closeSidebar()
-			}
+			if (window.innerWidth <= 1024) closeSidebar()
 		})
 	})
 
-	/* ---- Sidebar scroll state (accent → light) ---- */
-	function onScroll() {
-		if (window.scrollY > SCROLL_THRESH) {
-			sidebar.classList.add('sidebar--scrolled')
-		} else {
-			sidebar.classList.remove('sidebar--scrolled')
-		}
-	}
-
-	window.addEventListener('scroll', onScroll, { passive: true })
-	onScroll()
-
-	/* ---- Active nav link on scroll ---- */
+	/* ---- Sections cache ---- */
 	var sections = document.querySelectorAll('section[id], footer[id]')
 	var sidebarAnchors = sidebar.querySelectorAll('a[href^="#"]')
 
-	function setActiveLink() {
-		var scrollY = window.scrollY + 120
+	/* ---- Scroll handling (rAF throttle) ---- */
+	var ticking = false
+
+	function handleScroll() {
+		var scrollY = window.scrollY
+
+		// Sidebar style switch
+		sidebar.classList.toggle('sidebar--scrolled', scrollY > SCROLL_THRESH)
+
+		// Active section detection
 		var current = ''
+		var offset = scrollY + 120
 
 		sections.forEach(function (sec) {
-			if (sec.offsetTop <= scrollY) {
-				current = sec.getAttribute('id')
+			if (sec.offsetTop <= offset) {
+				current = sec.id
 			}
 		})
 
 		sidebarAnchors.forEach(function (a) {
-			a.classList.remove('is-active')
-			if (a.getAttribute('href') === '#' + current) {
-				a.classList.add('is-active')
-			}
+			a.classList.toggle('is-active', a.getAttribute('href') === '#' + current)
 		})
+
+		ticking = false
 	}
 
-	window.addEventListener('scroll', setActiveLink, { passive: true })
-	setActiveLink()
+	function onScroll() {
+		if (!ticking) {
+			requestAnimationFrame(handleScroll)
+			ticking = true
+		}
+	}
+
+	window.addEventListener('scroll', onScroll, { passive: true })
+
+	/* ---- Init ---- */
+	handleScroll()
+	;(function () {
+		var sidebar = document.getElementById('sidebar')
+		var footer = document.querySelector('.footer')
+
+		if (!sidebar || !footer) return
+
+		var isMobile = window.matchMedia('(max-width: 1024px)').matches
+		if (isMobile) return // critical: disable transform logic on mobile
+
+		var ticking = false
+
+		function update() {
+			var vh = window.innerHeight
+			var footerTop = footer.getBoundingClientRect().top
+
+			var overlap = vh - footerTop
+
+			if (overlap > 0) {
+				sidebar.style.transform = 'translateY(' + -overlap + 'px)'
+			} else {
+				sidebar.style.transform = ''
+			}
+
+			ticking = false
+		}
+
+		function onScroll() {
+			if (!ticking) {
+				requestAnimationFrame(update)
+				ticking = true
+			}
+		}
+
+		window.addEventListener('scroll', onScroll, { passive: true })
+		window.addEventListener('resize', update)
+
+		update()
+	})()
 
 	/* ---- Slot machine digit roller ---- */
 	;(function () {
@@ -295,30 +357,6 @@
 				}
 			})
 		})
-	}
-
-	/* ---- Sidebar stops at footer ---- */
-	var footerEl = document.querySelector('.footer')
-	if (footerEl) {
-		function updateSidebarPosition() {
-			if (window.innerWidth <= 1024) {
-				sidebar.style.position = ''
-				sidebar.style.top = ''
-				return
-			}
-			var footerTop = footerEl.getBoundingClientRect().top
-			var vh = window.innerHeight
-			if (footerTop < vh) {
-				sidebar.style.position = 'absolute'
-				sidebar.style.top = window.scrollY + footerTop - vh + 'px'
-			} else {
-				sidebar.style.position = ''
-				sidebar.style.top = ''
-			}
-		}
-		window.addEventListener('scroll', updateSidebarPosition, { passive: true })
-		window.addEventListener('resize', updateSidebarPosition, { passive: true })
-		updateSidebarPosition()
 	}
 
 	/* ---- Smooth scroll for anchor links ---- */

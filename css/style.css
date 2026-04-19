@@ -23,6 +23,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	font-weight: 400;
 }
+body,
+html {
+	overflow-x: hidden;
+}
 p {
 	margin-bottom: 10px;
 }
@@ -826,6 +830,9 @@ h3 {
 	justify-content: center;
 	border-left: none;
 	border-bottom: none;
+}
+.clients__logo-placeholder img {
+	max-width: 120px;
 }
 
 /* --- INDUSTRIES --- */
@@ -2502,14 +2509,13 @@ h3 {
 	align-items: flex-start;
 	gap: 0;
 	border: 1px solid var(--color-border);
-	border-left: none;
 }
 .press__text-col {
-	flex: 0 0 33.3%;
+	flex: 0 0 50%;
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-16);
-	padding: var(--space-30) 0;
+	padding: var(--space-30);
 	justify-content: space-between;
 	height: stretch;
 }
@@ -2532,6 +2538,7 @@ h3 {
 	min-height: 210px;
 	border: 1px solid var(--color-border);
 	border-top: none;
+	border-right: none;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
