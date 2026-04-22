@@ -784,6 +784,7 @@ h3 {
 }
 .clients__content {
 	flex: 0 0 66.666%;
+	max-width: 66.666%;
 	background-color: var(--color-bg-grey);
 	display: flex;
 	flex-direction: column;
@@ -803,11 +804,50 @@ h3 {
 	height: 100%;
 }
 .clients__logos {
+	margin-top: 0;
+	border-top: 1px solid var(--color-bg-white);
+	overflow: hidden;
+	width: 100%;
+}
+.clients__logos-head {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: var(--space-40);
+}
+.clients__logos-nav {
 	display: flex;
 	align-items: center;
-	flex-wrap: wrap;
-	margin-top: var(--space-40);
-	border-top: 1px solid var(--color-bg-white);
+}
+.clients__btn {
+	width: 60px;
+	height: 60px;
+	background-color: var(--color-bg-grey);
+	border: 1px solid var(--color-bg-white);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.4s;
+	border-bottom: 0;
+}
+.clients__btn:hover {
+	background-color: var(--color-bg-main);
+}
+
+.clients__btn svg {
+	width: 30px;
+	height: 30px;
+}
+.clients__btn--next {
+	border-left: none;
+}
+.clients-swiper .swiper-slide {
+	width: 100%;
+}
+.clients__logos-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-rows: repeat(2, 108px);
 }
 .clients__logo-item {
 	height: 36px;
@@ -828,10 +868,13 @@ h3 {
 	color: var(--color-text-primary);
 	/* opacity: 0.5; */
 	border: 1px solid var(--color-bg-white);
-	width: 25%;
+	width: 100%;
 	justify-content: center;
 	border-left: none;
 	border-top: none;
+}
+.clients__logo-placeholder--empty {
+	pointer-events: none;
 }
 .clients__logo-placeholder img {
 	max-width: 160px;
@@ -5768,9 +5811,14 @@ h4 {
 	.clients .section-title {
 		padding: 70px 15px 40px 15px;
 	}
+	.clients__logos-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-rows: repeat(2, 87px);
+	}
 	.clients__logo-placeholder {
 		height: 85px;
-		width: 50%;
+		width: 100%;
 	}
 	.clients__map {
 		height: 360px;
@@ -5852,6 +5900,14 @@ h4 {
 	}
 	.clients__content {
 		flex: none;
+		max-width: 100%;
+	}
+	.clients__logos-head {
+		margin-top: 24px;
+	}
+	.clients__btn {
+		width: 56px;
+		height: 56px;
 	}
 	.clients__map {
 		flex: none;

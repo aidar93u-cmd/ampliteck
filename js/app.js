@@ -399,6 +399,23 @@
 		})
 	}
 
+	/* ---- Clients Swiper slider (index.html) ---- */
+	if (
+		typeof Swiper !== 'undefined' &&
+		document.querySelector('.clients-swiper')
+	) {
+		new Swiper('.clients-swiper', {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 700,
+			navigation: {
+				nextEl: '#clientsNext',
+				prevEl: '#clientsPrev',
+				disabledClass: 'is-disabled',
+			},
+		})
+	}
+
 	/* ---- Partners custom carousel (about.html) ---- */
 	var pPrev = document.getElementById('partnersPrev')
 	var pNext = document.getElementById('partnersNext')
