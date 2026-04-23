@@ -859,6 +859,10 @@ h3 {
 	width: auto;
 	object-fit: contain;
 }
+.clients__logo{
+	transition:0.4s all;
+	cursor:pointer
+}
 .clients__logo-placeholder {
 	height: 108px;
 	display: flex;
@@ -872,6 +876,9 @@ h3 {
 	justify-content: center;
 	border-left: none;
 	border-top: none;
+}
+.clients__logo:hover{
+    background: #D6D8E0;
 }
 .clients__logo-placeholder--empty {
 	pointer-events: none;
