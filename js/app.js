@@ -405,13 +405,18 @@
 		document.querySelector('.clients-swiper')
 	) {
 		new Swiper('.clients-swiper', {
-			slidesPerView: 1,
+			slidesPerView: 4,
 			spaceBetween: 0,
 			speed: 700,
 			navigation: {
 				nextEl: '#clientsNext',
 				prevEl: '#clientsPrev',
 				disabledClass: 'is-disabled',
+			},
+			breakpoints: {
+				0: { slidesPerView: 2.3 },
+				480: { slidesPerView: 2.3 },
+				768: { slidesPerView: 4 },
 			},
 		})
 	}
@@ -593,7 +598,7 @@
 		/* ---- Related projects Swiper ---- */
 		if (document.getElementById('relatedSwiper')) {
 			new Swiper('#relatedSwiper', {
-				slidesPerView: 1,
+				slidesPerView: 6,
 				spaceBetween: 0,
 				navigation: {
 					prevEl: '#relatedPrev',
