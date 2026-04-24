@@ -370,35 +370,79 @@
 			}
 		})
 	})
+/* ---- Partners Swiper slider (proper lifecycle control) ---- */
+var partnersEl = document.querySelector('.partners-swiper')
 
-	/* ---- Partners Swiper slider (index.html) ---- */
-	if (
-		typeof Swiper !== 'undefined' &&
-		document.querySelector('.partners-swiper')
-	) {
-		var partnersSwiper = new Swiper('.partners-swiper', {
-			slidesPerView: 5,
-			spaceBetween: 0,
-			loop: true,
-			speed: 900,
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: false,
-			},
-			navigation: {
-				nextEl: '#partnersNext',
-				prevEl: '#partnersPrev',
-				disabledClass: 'is-disabled',
-			},
-			breakpoints: {
-				0: { slidesPerView: 1.6 },
-				480: { slidesPerView: 3 },
-				768: { slidesPerView: 4 },
-				1024: { slidesPerView: 5 },
-			},
+if (typeof Swiper !== 'undefined' && partnersEl) {
+
+	var partnersSwiper = new Swiper('.partners-swiper', {
+		slidesPerView: 5,
+		spaceBetween: 0,
+		loop: true,
+		speed: 900,
+
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+		},
+
+		navigation: {
+			nextEl: '#partnersNext',
+			prevEl: '#partnersPrev',
+			disabledClass: 'is-disabled',
+		},
+
+		breakpoints: {
+			0: { slidesPerView: 1.6 },
+			480: { slidesPerView: 3 },
+			768: { slidesPerView: 4 },
+			1024: { slidesPerView: 5 },
+		},
+	})
+
+	// IMPORTANT: stop immediately
+	if (partnersSwiper.autoplay) {
+		partnersSwiper.autoplay.stop()
+	}
+
+	let started = false
+	let timer = null
+
+	function startSwiper() {
+		if (started) return
+		started = true
+
+		partnersSwiper.update()
+
+		// small delay fixes initial layout glitch
+		requestAnimationFrame(() => {
+			partnersSwiper.update()
+			partnersSwiper.autoplay.start()
 		})
 	}
 
+	var observer = new IntersectionObserver((entries) => {
+		const entry = entries[0]
+
+		if (entry.isIntersecting) {
+			if (!timer) {
+				timer = setTimeout(() => {
+					startSwiper()
+					observer.disconnect()
+				}, 1000)
+			}
+		} else {
+			if (timer) {
+				clearTimeout(timer)
+				timer = null
+			}
+		}
+	}, {
+		threshold: 0.6
+	})
+
+	observer.observe(partnersEl)
+}
 	/* ---- Clients Swiper slider (index.html) ---- */
 	if (
 		typeof Swiper !== 'undefined' &&
@@ -408,6 +452,7 @@
 			slidesPerView: 4,
 			spaceBetween: 0,
 			speed: 700,
+			loop:true,
 			navigation: {
 				nextEl: '#clientsNext',
 				prevEl: '#clientsPrev',
