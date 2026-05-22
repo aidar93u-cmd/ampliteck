@@ -6740,3 +6740,47 @@ h4 {
 }
 
 /* ── page-specific BEM styles (Проекты) ── */
+
+
+
+
+/* ── Service-list styles ── */
+.service-list__row{	
+    padding: var(--space-120) var(--space-30) 0;
+}
+.service-list__header{
+	max-width:400px;
+	margin-bottom:30px
+}
+.service-list__col{
+	padding:26px 30px;
+	background:#F7F7F7;
+    column-count: 2;	
+}
+
+.service-list__col li{
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.service-list__col li:before{
+	content:'';
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+	background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.308594 10.0571L4.50109 14.2496L5.55859 13.1846L1.37359 8.99957M16.6811 4.18457L8.74609 12.1271L5.62609 8.99957L4.55359 10.0571L8.74609 14.2496L17.7461 5.24957M13.5011 5.24957L12.4436 4.18457L7.68109 8.94707L8.74609 10.0046L13.5011 5.24957Z' fill='%2348BB9C'/%3E%3Cpath d='M16.6783 4.18555L8.74328 12.128L5.62328 9.00055L4.55078 10.058L8.74328 14.2505L17.7433 5.25055' fill='%2348BB9C'/%3E%3C/svg%3E%0A");    
+	flex: 0 0 18px;
+}
+@media (max-width: 568px) {
+	.service-list__row {
+		padding: 40px 15px 30px;
+	}
+	.service-list__col {
+		padding: 15px;
+		column-count: 1;
+	}
+}
+/* ── Service-list styles ── */
